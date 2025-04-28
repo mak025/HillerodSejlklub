@@ -15,7 +15,7 @@
             this.seats = seats;
         }
 
-        public string getBoatDetails()
+        public string GetBoatDetails()
         {
             return "Boat Type: " + type + "\n" +                   // This returns the details of the device brand in a string format.
                    "Boat Size: " + size + "\n" +     // This returns the details of the device manufacturer in a string format.
