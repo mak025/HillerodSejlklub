@@ -1,6 +1,6 @@
 ﻿namespace HillerodSejlklub.Models
 {
-    public abstract class Boats
+    public abstract class Boat
     {
         public string type { get; protected set; }
 
@@ -8,7 +8,7 @@
 
         public double seats { get; protected set; }
 
-        public Boats(string type, string size, double seats)
+        public Boat(string type, string size, double seats)
         {
             this.type = type;
             this.size = size;
@@ -23,11 +23,11 @@
         }
     }
 
-    public class SailBoats : Boats
+    public class SailBoat : Boat
     {
         private string Sails { get; set; }
 
-        public SailBoats(string type, string size, double seats, string Sails)
+        public SailBoat(string type, string size, double seats, string Sails)
             : base(type, size, seats)
         {
             this.Sails = Sails;
