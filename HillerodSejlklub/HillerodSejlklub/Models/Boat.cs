@@ -95,7 +95,7 @@
         public double FuelCapacity { get; private set; } // Fuel capacity in liters
 
         public MotorBoat(string type, string size, double seats, string material, string color, double weight, int yearBuilt, int enginePower, string fuelType, double fuelCapacity)
-            : base(type, size, seats, material, color, weight, yearBuilt)
+            : base(type, size, seats, material, color, weight, yearBuilt, name: null, registrationNumber: null)
         {
             EnginePower = enginePower;
             FuelType = fuelType;
