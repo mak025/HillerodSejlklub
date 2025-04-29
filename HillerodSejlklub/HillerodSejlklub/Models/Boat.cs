@@ -26,7 +26,9 @@ namespace HillerodSejlklub.Models
         public DateTime LastMaintenanceDate { get; protected set; } // Date of last maintenance
         public bool NeedsRepair { get; protected set; } = false; // Indicates if the boat needs repair
 
-        public Boat(string type, string size, double seats, string material, string color, double weight, int yearBuilt, string name, string registrationNumber)
+        public string IMGPath { get; protected set; } // Path to the image of the boat
+
+        public Boat(string type, string size, double seats, string material, string color, double weight, int yearBuilt, string name, string registrationNumber, string imgpath)
         {
             // Constructor to initialize the boat properties
 
@@ -40,6 +42,7 @@ namespace HillerodSejlklub.Models
             this.YearBuilt = yearBuilt;
             this.Name = name;
             this.RegistrationNumber = registrationNumber;
+            this.IMGPath = imgpath;
         }
 
         public void AddMaintenanceLog(string logEntry)
@@ -89,8 +92,8 @@ namespace HillerodSejlklub.Models
         public int NumberOfSails { get; private set; } // Number of sails on the boat
         public bool HasKeel { get; private set; }    // Indicates if the sailboat has a keel
 
-        public SailBoat(string type, string size, double seats, string material, string color, double weight, int yearBuilt, string name, string registrationNumber, string sailType, int numberOfSails, bool hasKeel)
-            : base(type, size, seats, material, color, weight, yearBuilt, name, registrationNumber)
+        public SailBoat(string type, string size, double seats, string material, string color, double weight, int yearBuilt, string name, string registrationNumber, ,string imgpath, string sailType, int numberOfSails, bool hasKeel)
+            : base(type, size, seats, material, color, weight, yearBuilt, name, registrationNumber, imgpath)
         {
             // Constructor to initialize the sailboat properties
             this.SailType = sailType;
@@ -116,8 +119,8 @@ namespace HillerodSejlklub.Models
         public string FuelType { get; private set; } // e.g., Gasoline, Diesel, Electric
         public double FuelCapacity { get; private set; } // Fuel capacity in liters
 
-        public MotorBoat(string type, string size, double seats, string material, string color, double weight, int yearBuilt, string name, string registrationNumber, int EnginePower, string FuelType, double FuelCapacity)
-            : base(type, size, seats, material, color, weight, yearBuilt, name, registrationNumber)
+        public MotorBoat(string type, string size, double seats, string material, string color, double weight, int yearBuilt, string name, string registrationNumber, string imgpath, int EnginePower, string FuelType, double FuelCapacity)
+            : base(type, size, seats, material, color, weight, yearBuilt, name, registrationNumber, imgpath)
         {
             // Constructor to initialize the motorboat properties
             this.EnginePower = EnginePower;
