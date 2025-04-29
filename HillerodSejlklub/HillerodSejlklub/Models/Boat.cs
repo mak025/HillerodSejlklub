@@ -92,7 +92,7 @@ namespace HillerodSejlklub.Models
         public int NumberOfSails { get; private set; } // Number of sails on the boat
         public bool HasKeel { get; private set; }    // Indicates if the sailboat has a keel
 
-        public SailBoat(string type, string size, double seats, string material, string color, double weight, int yearBuilt, string name, string registrationNumber, ,string imgpath, string sailType, int numberOfSails, bool hasKeel)
+        public SailBoat(string type, string size, double seats, string material, string color, double weight, int yearBuilt, string name, string registrationNumber, string imgpath, string sailType, int numberOfSails, bool hasKeel)
             : base(type, size, seats, material, color, weight, yearBuilt, name, registrationNumber, imgpath)
         {
             // Constructor to initialize the sailboat properties
