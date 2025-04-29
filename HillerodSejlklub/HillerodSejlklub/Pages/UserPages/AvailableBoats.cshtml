@@ -1,4 +1,35 @@
 ﻿@page
-@model HillerodSejlklub.Pages.UserFunctions.AvailableBoatsModel
+@model HillerodSejlklub.Pages.UserPages.AvailableBoatsModel
 @{
+	ViewData["Title"] = "Available Boats";
 }
+
+<h1>Available Boats</h1>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Size</th>
+			<th>Seats</th>
+			<th>Year Built</th>
+			<th>Price</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var boat in Model.AvailableBoats)
+		{
+			<tr>
+				<td>@boat.Name</td>
+				<td>@boat.Type</td>
+				<td>@boat.Size</td>
+				<td>@boat.Seats</td>
+				<td>@boat.YearBuilt</td>
+				<td>
+					<a asp-asp-page="./BookBoat" asp-route-id="@boat.RegistrationNumber" class="btn btn-primary">Create Booking</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

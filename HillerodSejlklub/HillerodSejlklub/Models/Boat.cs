@@ -137,4 +137,5 @@ namespace HillerodSejlklub.Models
                    $"Fuel Capacity: {FuelCapacity} liters";
         }
     }
+
 }
