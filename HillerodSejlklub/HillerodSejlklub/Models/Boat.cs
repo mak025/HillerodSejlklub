@@ -8,6 +8,9 @@ namespace HillerodSejlklub.Models
         // Boat properties
         // These properties are protected to allow derived classes to access them directly
         // and can be modified through methods in the base class.
+
+
+        public static int nextID = 1; // Static variable to keep track of the next ID
         public string Type { get; protected set; } // Type of the boat (e.g., Sailboat, Motorboat, etc.)
         public string Size { get; protected set; } // Size of the boat (e.g., Small, Medium, Large)
         public double Seats { get; protected set; } // Number of seats available on the boat
@@ -26,6 +29,8 @@ namespace HillerodSejlklub.Models
         public Boat(string type, string size, double seats, string material, string color, double weight, int yearBuilt, string name, string registrationNumber)
         {
             // Constructor to initialize the boat properties
+
+            Boat.nextID = nextID++; // Increment the static ID for each new boat
             this.Type = type; 
             this.Size = size;
             this.Seats = seats;
