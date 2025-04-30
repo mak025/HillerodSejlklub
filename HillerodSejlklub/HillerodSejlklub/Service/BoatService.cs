@@ -20,9 +20,9 @@ namespace HillerodSejlklub.Service
         {
             return _boatInterface.GetAllBoats();
         }
-        public Boat Get(string boatReg)
+        public Boat Get(int boatID)
         {
-            return _boatInterface.Get(boatReg);
+            return _boatInterface.Get(boatID);
         }
     }
 }

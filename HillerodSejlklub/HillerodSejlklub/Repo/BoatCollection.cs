@@ -32,11 +32,11 @@ namespace HillerodSejlklub.Interface
             return _boats;
         }
 
-        public Boat Get(string boatReg)
+        public Boat Get(int boatID)
         {
             foreach (Boat boat in _boats)
             {
-                if (boatReg == boat.RegistrationNumber)
+                if (boatID == Boat.nextID)
                 {
                     return boat;
                 }
