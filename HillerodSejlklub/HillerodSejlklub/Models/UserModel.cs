@@ -1,4 +1,4 @@
-﻿namespace Mikroprojekt_2.Model
+﻿namespace HillerodSejlklub.Model
 {
     public class UserModel
     {

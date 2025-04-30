@@ -1,9 +1,9 @@
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Mikroprojekt_2.Model;
+using HillerodSejlklub.Model;
 
-namespace Mikroprojekt_2.Pages
+namespace HillerodSejlklub.Pages
 {
     public class LoginModel : PageModel
     {
@@ -13,7 +13,7 @@ namespace Mikroprojekt_2.Pages
         [BindProperty]
         public string Password { get; set; }
 
-        private readonly string filePath;
+        private string filePath;
         public LoginModel(IWebHostEnvironment env)
         {
             // Antager at filen ligger i en "Data" mappe i projektroden
