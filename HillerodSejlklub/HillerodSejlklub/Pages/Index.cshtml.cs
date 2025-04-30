@@ -57,6 +57,6 @@ public class IndexModel : PageModel
         Boat bound = _boatService.Get(boatReg);
 
         Debug.WriteLine("onPostBook " + bookingDate);
-        return RedirectToPage("/Form", new { roomname = bound.RegistrationNumber, roomdate = bookingDate });
+        return RedirectToPage("/Booking", new { roomname = bound.RegistrationNumber, roomdate = bookingDate });
     }
 }

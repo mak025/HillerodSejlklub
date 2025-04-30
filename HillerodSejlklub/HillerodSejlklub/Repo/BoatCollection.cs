@@ -2,7 +2,7 @@
 
 namespace HillerodSejlklub.Interface
 {
-    public class BoatCollection : IBoat
+    public class BoatCollection : IMember
     {
         private List<Boat> _boats;
 

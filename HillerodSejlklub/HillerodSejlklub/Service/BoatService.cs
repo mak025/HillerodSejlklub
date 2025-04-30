@@ -4,9 +4,9 @@ namespace HillerodSejlklub.Service
 {
     public class BoatService
     {
-        private IBoat _boatInterface;
+        private IMember _boatInterface;
 
-        public BoatService(IBoat boatInterface)
+        public BoatService(IMember boatInterface)
         {
             _boatInterface = boatInterface;
         }
