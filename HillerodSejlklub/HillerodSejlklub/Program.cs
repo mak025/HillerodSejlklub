@@ -12,20 +12,17 @@ namespace HillerodSejlklub
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+<<<<<<< HEAD
             builder.Services.AddSingleton<IBoat, BoatCollection>();
             builder.Services.AddSingleton<BoatService>(); // Add services to the container.
             builder.Services.AddSingleton<IBooking, BookingCollection>();
             builder.Services.AddSingleton<BookingService>(); // Add services to the container.
             builder.Services.AddRazorPages();
+=======
+            builder.Services.AddSession();
+>>>>>>> 52f21f7 (Refactors project namespace and adds user data)
 
             var app = builder.Build();
-            builder.Services.AddSession();
-            builder.Services.AddRazorPages();
-            builder.Services.AddSession();
-
-            builder.Services.AddRazorPages();
-          
-            app.UseSession();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
@@ -34,16 +31,17 @@ namespace HillerodSejlklub
                 app.UseHsts();
             }
 
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
 
+            app.UseSession();
             app.UseAuthorization();
 
             app.MapRazorPages();
 
             app.Run();
-            app.UseHttpsRedirection();
         }
     }
 }

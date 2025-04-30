@@ -10,5 +10,9 @@
   {
     "Username": "Marcus",
     "PasswordHash": "1234"
+  },
+  {
+    "Username": "bruger1",
+    "PasswordHash": "password"
   }
 ]

@@ -1,9 +1,9 @@
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Mikroprojekt_2.Model;
+using HillerodSejlklub.Model;
 
-namespace Mikroprojekt_2.Pages
+namespace HillerodSejlklub.Pages
 {
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -19,7 +19,7 @@ namespace Mikroprojekt_2.Pages
 
         public string Message { get; set; }
 
-        private readonly string filePath;
+        private string filePath;
 
         public RegisterModel(IWebHostEnvironment env)
         {
