@@ -6,7 +6,7 @@ namespace HillerodSejlklub.Interface
     {
         void Add(Booking booking);
 
-        List<Booking> GetAll();
+        public List<Booking> GetAll();
 
         void Delete(int bookingId);
     }
