@@ -1,0 +1,32 @@
+﻿
+@page
+@model LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2>Login</h2>
+
+<form method="post">
+    <div>
+        <label for="Username">Brugernavn</label>
+        <input type="text" id="Username" name="Username" asp-for="Username" />
+    </div>
+    <div>
+        <label for="Password">Adgangskode</label>
+        <input type="password" id="Password" name="Password" asp-for="Password" />
+    </div>
+    <div>
+        <button type="submit">Log ind</button>
+        <a class="btn" asp-page="/Register">Opret bruger</a>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <p style="color:red">@Model.ErrorMessage</p>
+    }
+</form>
+
+    
+
+

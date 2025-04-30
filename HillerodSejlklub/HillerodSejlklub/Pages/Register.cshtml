@@ -1,0 +1,26 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Opret Bruger";
+}
+
+<h2>Opret ny bruger</h2>
+
+<form method="post">
+    <div>
+        <label for="Username">Brugernavn</label>
+        <input type="text" id="Username" name="Username" asp-for="Username" required />
+    </div>
+    <div>
+        <label for="Password">Adgangskode</label>
+        <input type="password" id="Password" name="Password" asp-for="Password" required />
+    </div>
+    <button type="submit">Opret</button>
+
+    @if (!string.IsNullOrEmpty(Model.Message))
+    {
+        <p>@Model.Message</p>
+    }
+</form>
+
+

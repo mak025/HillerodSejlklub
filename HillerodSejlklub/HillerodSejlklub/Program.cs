@@ -19,12 +19,21 @@ namespace HillerodSejlklub
             builder.Services.AddRazorPages();
 
             var app = builder.Build();
+            builder.Services.AddSession();
+            builder.Services.AddRazorPages();
+            builder.Services.AddSession();
+
+            builder.Services.AddRazorPages();
+          
+            app.UseSession();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Error");
+                app.UseHsts();
             }
+
             app.UseStaticFiles();
 
             app.UseRouting();
@@ -34,6 +43,7 @@ namespace HillerodSejlklub
             app.MapRazorPages();
 
             app.Run();
+            app.UseHttpsRedirection();
         }
     }
 }
