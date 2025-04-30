@@ -50,13 +50,5 @@ public class IndexModel : PageModel
     {
 
     }
-    public IActionResult OnPostBook(string boatReg, DateOnly bookingDate)
-    {
-        Debug.WriteLine("hej");
-
-        Boat bound = _boatService.Get(boatReg);
-
-        Debug.WriteLine("onPostBook " + bookingDate);
-        return RedirectToPage("/Booking", new { roomname = bound.RegistrationNumber, roomdate = bookingDate });
-    }
+    
 }

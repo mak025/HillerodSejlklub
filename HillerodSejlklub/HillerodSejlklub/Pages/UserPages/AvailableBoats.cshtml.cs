@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using HillerodSejlklub.Models;
 using HillerodSejlklub.Interface;
 using System.Collections.Generic;
+using HillerodSejlklub.Service;
+using System.Diagnostics;
 
 namespace HillerodSejlklub.Pages.UserPages
 {
@@ -27,6 +29,15 @@ namespace HillerodSejlklub.Pages.UserPages
                 .GetAllBoats() // Assuming this method exists in 'BoatCollection'
                 .Where(boat => boat.IsAvailable) // Correcting 'base' to 'boat'
                 .ToList();
+        }
+        public IActionResult OnPostBook(string boatReg, DateOnly bookingDate)
+        {
+            Debug.WriteLine("hej");
+
+            Boat bound = _boatCollection.Get(boatReg);
+
+            Debug.WriteLine("onPostBook " + bookingDate);
+            return RedirectToPage("/Booking", new { roomname = bound.RegistrationNumber, roomdate = bookingDate });
         }
     }
 }
