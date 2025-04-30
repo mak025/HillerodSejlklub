@@ -1,3 +1,6 @@
+using HillerodSejlklub.Service;
+using HillerodSejlklub.Interface;
+
 namespace HillerodSejlklub
 {
     public class Program
@@ -7,6 +10,11 @@ namespace HillerodSejlklub
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddRazorPages();
+            builder.Services.AddSingleton<IBoat, BoatCollection>();
+            builder.Services.AddSingleton<BoatService>(); // Add services to the container.
+            builder.Services.AddSingleton<IBooking, BookingCollection>();
+            builder.Services.AddSingleton<BookingService>(); // Add services to the container.
             builder.Services.AddRazorPages();
 
             var app = builder.Build();
