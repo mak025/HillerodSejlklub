@@ -21,14 +21,11 @@
                         <label for="Lokale">Skift Lokale: </label>
                         <div class="form-group mt-2 d-inline">
                             <select asp-for="Booking.BoatID" id="Lokale">
-                                @foreach (var boat in Model.AvailableBoats)
-                                <option value="0">Select a room</option>
-                                <option value="1">Alpha</option>
-                                <option value="2">Beta</option>
-                                <option value="3">Charlie</option>
-                                <option value="4">Delta</option>
-                                <option value="5">Echo</option>
-                                <option value="6">Foxtrot</option>
+                                @foreach (var boat in Model.Boats)
+                                {
+                                    <option value="@boat.RegistrationNumber">@boat.Name</option>
+
+                                }
                             </select>
                         </div>
                     </div>
@@ -51,4 +48,7 @@
                 </form>
                 </<div>
                 </div>
+                </div>
+                </div>
     </container-sm>
+    </body>

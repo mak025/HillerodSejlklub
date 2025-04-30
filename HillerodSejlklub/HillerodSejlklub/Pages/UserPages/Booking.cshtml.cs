@@ -13,15 +13,18 @@ namespace HillerodSejlklub.Pages.UserPages
         private MemberService _memberService;
         [BindProperty]
         public Booking Booking { get; set; }
-        private List<Member> Members { get; set; }
+        public List<Member> Members { get; private set; }
+        [BindProperty]
+        public List<Boat> Boats { get; private set; }
         public int Lokale { get; set; }
 
-        public BookingModel(BookingService bookingS, BoatService boatS, MemberService memberS)
+        public BookingModel(BoatService boatS, MemberService memberS)
         {
-            _bookService = bookingS;
+            //_bookService = bookingS;
             _boatService = boatS;
             _memberService = memberS;
-            _members = memberS.GetAll();
+            Boats = boatS.GetAll();
+            Members = memberS.GetAll();
         }
 
         public void OnGet()
@@ -31,7 +34,7 @@ namespace HillerodSejlklub.Pages.UserPages
 
         public IActionResult OnPost()
         {
-            Booking = new Booking();
+            //Booking = new Booking();
             Debug.WriteLine("test " + Booking.BookingID);
             _bookService.Add(Booking);
             return RedirectToPage("/BookingEditor");

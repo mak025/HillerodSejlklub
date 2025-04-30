@@ -1,8 +1,9 @@
 ﻿using HillerodSejlklub.Models;
+using HillerodSejlklub.Repo;
 
 namespace HillerodSejlklub.Interface
 {
-    public class BoatCollection : IMember
+    public class BoatCollection : IBoat
     {
         private List<Boat> _boats;
 

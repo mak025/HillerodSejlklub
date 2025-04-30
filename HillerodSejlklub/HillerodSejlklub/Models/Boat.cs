@@ -22,7 +22,7 @@ namespace HillerodSejlklub.Models
         public string RegistrationNumber { get; protected set; } // Unique identifier for the boat
         public bool IsAvailable { get; protected set; } = true; // Indicates if the boat is available for use
         public List<string> MaintenanceLog { get; private set; } = new List<string>(); // List of maintenance logs
-        public string CurrentLocation { get; protected set; } // Location of the boat (e.g., dock, marina)
+        //public string CurrentLocation { get; protected set; } // Location of the boat (e.g., dock, marina)
         public DateTime LastMaintenanceDate { get; protected set; } // Date of last maintenance
         public bool NeedsRepair { get; protected set; } = false; // Indicates if the boat needs repair
 
@@ -62,7 +62,7 @@ namespace HillerodSejlklub.Models
         public void UpdateLocation(string newLocation)
         // Method to update the current location of the boat
         {
-            CurrentLocation = newLocation;
+            //CurrentLocation = newLocation;
         }
 
         public string GetBoatDetails()
@@ -78,7 +78,7 @@ namespace HillerodSejlklub.Models
                    $"Name: {Name}\n" +
                    $"Registration Number: {RegistrationNumber}\n" +
                    $"Is Available: {IsAvailable}\n" +
-                   $"Current Location: {CurrentLocation}\n" +
+                   //$"Current Location: {CurrentLocation}\n" +
                    $"Needs Repair: {NeedsRepair}\n" +
                    $"Last Maintenance Date: {LastMaintenanceDate.ToShortDateString()}";
         }

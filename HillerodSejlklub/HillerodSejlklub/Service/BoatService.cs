@@ -1,12 +1,12 @@
-﻿using HillerodSejlklub.Interface;
+﻿using HillerodSejlklub.Repo;
 using HillerodSejlklub.Models;
 namespace HillerodSejlklub.Service
 {
     public class BoatService
     {
-        private IMember _boatInterface;
+        private IBoat _boatInterface;
 
-        public BoatService(IMember boatInterface)
+        public BoatService(IBoat boatInterface)
         {
             _boatInterface = boatInterface;
         }
