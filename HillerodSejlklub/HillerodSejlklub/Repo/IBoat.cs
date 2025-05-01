@@ -10,6 +10,6 @@ namespace HillerodSejlklub.Repo
 
         public List<Boat> GetAllBoats();
 
-        public Boat Get(int boatID);
+        public Boat Get(string boatReg);
     }
 }

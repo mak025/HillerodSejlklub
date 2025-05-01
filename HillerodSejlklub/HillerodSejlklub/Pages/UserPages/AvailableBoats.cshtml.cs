@@ -30,14 +30,14 @@ namespace HillerodSejlklub.Pages.UserPages
                 .Where(boat => boat.IsAvailable) // Correcting 'base' to 'boat'
                 .ToList();
         }
-        public IActionResult OnPostBook(int boatID)
+        public IActionResult OnPostBook(string boatReg)
         {
             Debug.WriteLine("hej");
 
-            Boat bound = _boatCollection.Get(boatID);
+            //Boat bound = _boatCollection.Get(boatReg);
 
             Debug.WriteLine("onPostBook ");
-            return RedirectToPage("/Booking", new { boatID = Boat.nextID});
+            return RedirectToPage("./Booking", new { boatID = Boat.nextID });
         }
     }
 }
