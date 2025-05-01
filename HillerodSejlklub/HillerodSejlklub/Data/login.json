@@ -14,5 +14,21 @@
   {
     "Username": "bruger1",
     "PasswordHash": "password"
+  },
+  {
+    "Username": "Christian111",
+    "PasswordHash": "test"
+  },
+  {
+    "Username": "efef",
+    "PasswordHash": "ewfew"
+  },
+  {
+    "Username": "admin2222",
+    "PasswordHash": "342423423"
+  },
+  {
+    "Username": "Lucas",
+    "PasswordHash": "1234"
   }
 ]

@@ -1,6 +1,6 @@
 ﻿
 @page
-@model LoginModel
+@model RegisterModel
 @{
     ViewData["Title"] = "Login";
 }
@@ -21,10 +21,6 @@
         <a class="btn" asp-page="/Register">Opret bruger</a>
     </div>
 
-    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
-    {
-        <p style="color:red">@Model.ErrorMessage</p>
-    }
 </form>
 
     

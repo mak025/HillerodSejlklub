@@ -20,11 +20,11 @@ namespace HillerodSejlklub.Interface
 
         public void Seed()
         {
-            _members.Add(new Member("Mikkel", "29249283", "Mikkel@mail.com"));
-            _members.Add(new Member("Lucas", "29249383", "Lucas@mail.com"));
-            _members.Add(new Member("Marcus", "29249283", "Marcus@mail.com"));
-            _members.Add(new Member("Christian", "29249283", "Christian@mail.com"));
-            _members.Add(new Member("Magnus", "29249283", "Magnus@mail.com"));
+            //_members.Add(new Member("Mikkel", "29249283", "Mikkel@mail.com"));
+            //_members.Add(new Member("Lucas", "29249383", "Lucas@mail.com"));
+            //_members.Add(new Member("Marcus", "29249283", "Marcus@mail.com"));
+            //_members.Add(new Member("Christian", "29249283", "Christian@mail.com"));
+            //_members.Add(new Member("Magnus", "29249283", "Magnus@mail.com"));
         }
 
         public List<Member> GetAll()
@@ -32,16 +32,16 @@ namespace HillerodSejlklub.Interface
             return _members;
         }
 
-        public Member Get(int id)
-        {
-            foreach (Member member in _members)
-            {
-                if (id == Member.ID)
-                {
-                    return member;
-                }
-            }
-            return null;
-        }
+        //public Member Get(int id)
+        //{
+        //    foreach (Member member in _members)
+        //    {
+        //        if (id == Member.ID)
+        //        {
+        //            return member;
+        //        }
+        //    }
+        //    return null;
+        //}
     }
 }

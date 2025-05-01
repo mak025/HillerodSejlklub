@@ -2,40 +2,63 @@ using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using HillerodSejlklub.Model;
+using System.IO;
 
 namespace HillerodSejlklub.Pages
 {
-    public class LoginModel : PageModel
-    {
-        [BindProperty]
-        public string Username { get; set; }
-
-        [BindProperty]
-        public string Password { get; set; }
-
-        private string filePath;
-        public LoginModel(IWebHostEnvironment env)
+   
+        public class LoginModel : PageModel
         {
-            // Antager at filen ligger i en "Data" mappe i projektroden
-            filePath = Path.Combine(env.ContentRootPath, "Data", "login.json");
-        }
+            [BindProperty]
+            public string Username { get; set; }
 
-        public string ErrorMessage { get; set; }
+            [BindProperty]
+            public string Password { get; set; }
 
-        public IActionResult OnPost()
-        {
-            var users = JsonSerializer.Deserialize<List<UserModel>>(System.IO.File.ReadAllText(filePath));
+            public string ErrorMessage { get; set; }
 
-            var user = users.FirstOrDefault(u => u.Username == Username && u.PasswordHash == Password);
-            if (user != null)
+            private readonly string filePath;
+
+            public LoginModel(IWebHostEnvironment env)
             {
-                HttpContext.Session.SetString("Username", Username);
-                return RedirectToPage("Index");
+                filePath = Path.Combine(env.ContentRootPath, "Data", "login.json");
             }
 
-            ErrorMessage = "Ugyldigt login";
-            return Page();
+            public void OnGet()
+            {
+            }
+
+            public IActionResult OnPost()
+            {
+                if (string.IsNullOrWhiteSpace(Username) || string.IsNullOrWhiteSpace(Password))
+                {
+                    ErrorMessage = "Udfyld både brugernavn og adgangskode.";
+                    return Page();
+                }
+
+                List<UserModel> users = new();
+
+                if (System.IO.File.Exists(filePath))
+                {
+                    var json = System.IO.File.ReadAllText(filePath);
+                    if (!string.IsNullOrWhiteSpace(json))
+                    {
+                        users = JsonSerializer.Deserialize<List<UserModel>>(json) ?? new();
+                    }
+                }
+
+                var user = users.FirstOrDefault(u => u.Username == Username && u.PasswordHash == Password);
+
+                if (user == null)
+                {
+                    ErrorMessage = "Forkert brugernavn eller adgangskode.";
+                    return Page();
+                }
+
+                // Hvis login er korrekt, kan vi evt. sætte en session eller gå til en ny side
+                return RedirectToPage("/Welcome"); // Du skal lave en Welcome.cshtml side hvis du vil
+            }
         }
     }
 
-}
+

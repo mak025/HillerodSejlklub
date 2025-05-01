@@ -4,18 +4,32 @@
     ViewData["Title"] = "Opret Bruger";
 }
 
-<h2>Opret ny bruger</h2>
+
+
+<h2>Opret profil</h2>
 
 <form method="post">
     <div>
-        <label for="Username">Brugernavn</label>
-        <input type="text" id="Username" name="Username" asp-for="Username" required />
+        <label>Brugernavn</label>
+        <input asp-for="Username" required />
     </div>
     <div>
-        <label for="Password">Adgangskode</label>
-        <input type="password" id="Password" name="Password" asp-for="Password" required />
+        <label>Adgangskode</label>
+        <input asp-for="Password" type="password" required />
     </div>
-    <button type="submit">Opret</button>
+    <div>
+        <label>Navn</label>
+        <input asp-for="Name" required />
+    </div>
+    <div>
+        <label>Telefon</label>
+        <input asp-for="Phone" required />
+    </div>
+    <div>
+        <label>Email</label>
+        <input asp-for="Email" type="email" required />
+    </div>
+    <button type="submit">Opret profil</button>
 
     @if (!string.IsNullOrEmpty(Model.Message))
     {

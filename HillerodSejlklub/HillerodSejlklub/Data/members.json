@@ -1,0 +1,34 @@
+[
+  {
+    "Name": "Christian Frederiksen",
+    "Username": "Christian111",
+    "ID": 1,
+    "Phone": "11111111",
+    "Email": "Christian@gmail.com",
+    "ProfileImage": null
+  },
+  {
+    "Name": "wefw",
+    "Username": "efef",
+    "ID": 2,
+    "Phone": "875276",
+    "Email": "g@gmail.com",
+    "ProfileImage": "avatar2.png"
+  },
+  {
+    "Name": "dwqwd",
+    "Username": "admin2222",
+    "ID": 3,
+    "Phone": "35687424",
+    "Email": "C@gmail.com",
+    "ProfileImage": "avatar3.png"
+  },
+  {
+    "Name": "LUCAS",
+    "Username": "Lucas",
+    "ID": 4,
+    "Phone": "11421547",
+    "Email": "LUcas@gmail.com",
+    "ProfileImage": "avatar7.png"
+  }
+]

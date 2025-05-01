@@ -21,9 +21,9 @@ namespace HillerodSejlklub.Service
         {
             return _memberInterface.GetAll();
         }
-        public Member Get(int id)
-        {
-            return _memberInterface.Get(id);
-        }
+        //public Member Get(int id)
+        //{
+        //    return _memberInterface.Get(id);
+        //}
     }
 }
