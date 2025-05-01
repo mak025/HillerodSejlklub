@@ -1,34 +1,6 @@
 [
   {
-    "Username": "admin",
-    "PasswordHash": "1234"
-  },
-  {
-    "Username": "Christian",
-    "PasswordHash": "1234"
-  },
-  {
-    "Username": "Marcus",
-    "PasswordHash": "1234"
-  },
-  {
-    "Username": "bruger1",
-    "PasswordHash": "password"
-  },
-  {
-    "Username": "Christian111",
-    "PasswordHash": "test"
-  },
-  {
-    "Username": "efef",
-    "PasswordHash": "ewfew"
-  },
-  {
-    "Username": "admin2222",
-    "PasswordHash": "342423423"
-  },
-  {
-    "Username": "Lucas",
+    "Username": "Magnus",
     "PasswordHash": "1234"
   }
 ]

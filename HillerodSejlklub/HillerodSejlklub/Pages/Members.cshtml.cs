@@ -17,7 +17,7 @@ namespace HillerodSejlklub.Pages
                 membersFilePath = Path.Combine(env.ContentRootPath, "Data", "members.json");
             }
 
-          
+         
                 public void OnGet()
         {
             if (System.IO.File.Exists(membersFilePath))

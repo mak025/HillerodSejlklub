@@ -34,7 +34,25 @@ namespace HillerodSejlklub.Pages
 
             public IActionResult OnPost()
             {
-                if (string.IsNullOrWhiteSpace(Username) || string.IsNullOrWhiteSpace(Password)
+            var AvatarImages = new[]
+{
+               "Avatar1.jpg",
+               "Avatar2.jpg",
+               "Avatar3.jpg",
+               "Avatar4.jpg",
+               "Avatar5.jpg",
+               "Avatar6.jpg",
+               "Avatar7.jpg",
+               "Avatar8.jpg",
+               "Avatar9.jpg",
+               "Avatar10.jpg",
+               "Avatar11.jpg"
+};
+
+            var random = new Random();
+            var selectedImage = AvatarImages[random.Next(AvatarImages.Length)];
+
+            if (string.IsNullOrWhiteSpace(Username) || string.IsNullOrWhiteSpace(Password)
                     || string.IsNullOrWhiteSpace(Name) || string.IsNullOrWhiteSpace(Phone) || string.IsNullOrWhiteSpace(Email))
                 {
                     Message = "Alle felter skal udfyldes.";
@@ -66,23 +84,7 @@ namespace HillerodSejlklub.Pages
 
 
 
-            var avatarImages = new[]
-{
-               "avatar1.png",
-               "avatar2.png",
-               "avatar3.png",
-               "avatar4.png",
-               "avatar5.png",
-               "avatar6.png",
-               "avatar7.png",
-               "avatar8.png",
-               "avatar9.png",
-               "avatar10.png",
-               "avatar11.png"
-};
-
-            var random = new Random();
-            var selectedImage = avatarImages[random.Next(avatarImages.Length)];
+          
 
 
 
@@ -93,8 +95,9 @@ namespace HillerodSejlklub.Pages
                     var json = System.IO.File.ReadAllText(membersFilePath);
                     members = JsonSerializer.Deserialize<List<Member>>(json) ?? new();
                 }
+           
 
-                var newMember = new Member(Name, Phone, Email, Username, selectedImage)
+            var newMember = new Member(Name, Phone, Email, Username, selectedImage)
                 {
                     ID = members.Count + 1
                 };
