@@ -13,33 +13,31 @@
                 <form method="post">
                     <div class="form-group container-fluid">
                         <label for="inputDateTime">Startid: </label>
-                        <input type="datetime-local" asp-for="_sDT" id="BookingStart" aria-describedby="dateTimeHelp" placeholder="Enter Date/Time" step="3600">
+                        <input type="datetime" asp-for="_sDT" id="BookingStart" aria-describedby="dateTimeHelp" placeholder="Enter Date/Time" step="3600">
                         <label for="inputDateTime">Sluttid: </label>
-                        <input type="datetime-local" asp-for="_eDT" id="BookingEnd" aria-describedby="dateTimeHelp" placeholder="Enter end time" step="3600" />
+                        <input type="datetime" asp-for="_eDT" id="BookingEnd" aria-describedby="dateTimeHelp" placeholder="Enter end time" step="3600" />
                     </div>
                     <div class="mt-2">
-                        <label for="inputBoatID">Vælg båd: </label>
+                        <label for="inputBoat">Vælg Båd: </label>
                         <div class="form-group mt-2 d-inline">
-                            <select asp-for="_boatID" id="Boats">
+                            <select asp-for="_boatName" id="Boats">
                                 @foreach (var boat in Model.Boats)
                                 {
-                                    <option value="@boat.ID">@boat.Name</option>
+                                    <option value="@boat.Name">@boat.Name</option>
                                 }
                             </select>
                         </div>
                     </div>
                     <div class="mt-2">
-                        <form method="post">
-                        <label for="inputMember">Vælg medlemmer: </label>
+                        <label for="inputMember">Vælg Medlemmer: </label>
                         <div class="form-group mt-2 d-inline">
-                            <select asp-for="_mID" id="Members">
+                            <select asp-for="@Model._user" id="Member">
                                 @foreach (var member in Model.Members)
                                 {
-                                    <option value="@member.ID">@member.Name</option>
+                                    <option value="@member.Username">@member.Username</option>
                                 }
                             </select>
                         </div>
-                        </form>
                     </div>
                     
                     <button type="submit" class="btn btn-primary mt-5">Submit</button>
@@ -47,8 +45,26 @@
                 </<div>
                 </div>
                 </div>
+                <h2 class="mt-5">Aktive Bookinger</h2>
+            <div class="row row-cols-md-2 row-cols-lg-3">
+
+            @foreach (var booking in Model.Bookings)
+            {
+                <div class="card shadow-sm mt-3">
+                    <div class="card-body text-start">
+                        <p><strong>@booking.User</strong></p>
+                    <p>Booking ID: @booking.BookingID</p>
+                    <p>Båd: @booking.BoatName</p>
+                    <p>fra: @booking.StartDT</p>
+                    <p>til:  @booking.EndDT</p>
+                </div>
+                </div>
+            }
+                </div>
                 </div>
     </container-sm>
+
+
     <script> //script to set DateTime forms to current time
         // Get the current date and time
         const now = new Date().toISOString().slice(0, 16); // Slices to match the datetime-local format
@@ -56,6 +72,7 @@
         // Set the value attribute of the input fields
         document.getElementById('BookingStart').value = now;
         document.getElementById('BookingEnd').value = now;
+
     </script>
 
     </body>

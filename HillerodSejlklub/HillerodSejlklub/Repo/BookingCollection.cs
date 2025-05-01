@@ -43,9 +43,9 @@ namespace HillerodSejlklub.Interface
 
         private void Seed()
         {
-            _bookings.Add(new Booking(new List<int>() { 1, 2, 3 } , 1, new DateTime(2025, 05, 03, 10, 0, 0), new DateTime(2025, 04, 01, 15, 0, 0) ));
-            _bookings.Add(new Booking(new List<int>() { 1, 2, 3 }, 2, new DateTime(2025, 05, 14, 12, 0, 0), new DateTime(2025, 04, 14, 15, 0, 0)));
-            _bookings.Add(new Booking(new List<int>() { 1, 2, 3 }, 5, new DateTime(2025, 05, 24, 8, 0, 0), new DateTime(2025, 04, 24, 11, 0, 0)));
+            _bookings.Add(new Booking("Marcus", "Jytte", new DateTime(2025, 05, 03, 10, 0, 0), new DateTime(2025, 04, 01, 15, 0, 0) ));
+            _bookings.Add(new Booking("Lucas", "Jette", new DateTime(2025, 05, 14, 12, 0, 0), new DateTime(2025, 04, 14, 15, 0, 0)));
+            _bookings.Add(new Booking("Mikkel", "Jonna", new DateTime(2025, 05, 24, 8, 0, 0), new DateTime(2025, 04, 24, 11, 0, 0)));
         }
     }
 }

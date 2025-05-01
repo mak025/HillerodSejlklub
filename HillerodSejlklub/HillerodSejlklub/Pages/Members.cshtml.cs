@@ -18,37 +18,37 @@ namespace HillerodSejlklub.Pages
             }
 
          
-                public void OnGet()
-        {
-            if (System.IO.File.Exists(membersFilePath))
+            public void OnGet()
             {
-                var json = System.IO.File.ReadAllText(membersFilePath);
-
-                if (!string.IsNullOrWhiteSpace(json))
+                if (System.IO.File.Exists(membersFilePath))
                 {
-                    try
+                    var json = System.IO.File.ReadAllText(membersFilePath);
+
+                    if (!string.IsNullOrWhiteSpace(json))
                     {
-                        Members = JsonSerializer.Deserialize<List<Member>>(json) ?? new();
+                        try
+                        {
+                            Members = JsonSerializer.Deserialize<List<Member>>(json) ?? new();
+                        }
+                        catch (Exception ex)
+                        {
+                            // Log evt. fejl
+                            Console.WriteLine("Fejl ved indlæsning af members.json: " + ex.Message);
+                            Members = new();
+                        }
                     }
-                    catch (Exception ex)
-                    {
-                        // Log evt. fejl
-                        Console.WriteLine("Fejl ved indlæsning af members.json: " + ex.Message);
-                        Members = new();
-                    }
+                   else
+                   {
+                       Members = new();
+                   }
                 }
                 else
                 {
                     Members = new();
                 }
             }
-            else
-            {
-                Members = new();
-            }
-        }
 
-    }
+        }
 }
     
 

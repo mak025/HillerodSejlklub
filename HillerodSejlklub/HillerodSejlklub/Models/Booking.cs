@@ -5,15 +5,17 @@
         static int _tempID = 1;
 
         public int BookingID { get; set; }
-        public List<int> MemberID { get;  set; }
-        public int BoatID { get; set; }
+        //public List<int> MemberID { get;  set; }
+        public string User { get; set; }
+        public string BoatName { get; set; }
         public DateTime StartDT { get; set; }
         public DateTime EndDT { get; set; }
 
-        public Booking(List<int> memberID, int boatID,  DateTime startDT, DateTime endTime)
+        public Booking(string user, string boatName,  DateTime startDT, DateTime endTime)
         {
-            MemberID = memberID;
-            BoatID = boatID;
+            //MemberID = memberID;
+            User = user;
+            BoatName = boatName;
             StartDT = startDT;
             EndDT = endTime;
             BookingID = _tempID;
