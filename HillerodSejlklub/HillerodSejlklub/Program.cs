@@ -15,7 +15,9 @@ namespace HillerodSejlklub
             builder.Services.AddSingleton<IBoat, BoatCollection>();
             builder.Services.AddSingleton<BoatService>(); // Add services to the container.
             builder.Services.AddSingleton<IBooking, BookingCollection>();
-            builder.Services.AddSingleton<BookingService>(); // Add services to the container.
+            builder.Services.AddSingleton<BookingService>();
+            builder.Services.AddSingleton<IMember, MemberCollection>();// Add services to the container.
+            builder.Services.AddSingleton<MemberService>();
             builder.Services.AddRazorPages();
             builder.Services.AddSession();
 
