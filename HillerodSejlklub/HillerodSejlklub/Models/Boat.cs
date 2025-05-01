@@ -1,4 +1,5 @@
 ﻿using System.Xml.Linq;
+using System.Diagnostics;
 
 namespace HillerodSejlklub.Models
 {
@@ -8,9 +9,9 @@ namespace HillerodSejlklub.Models
         // Boat properties
         // These properties are protected to allow derived classes to access them directly
         // and can be modified through methods in the base class.
+        private static int _tempID = 1;
 
-
-        public static int nextID = 1; // Static variable to keep track of the next ID
+        public int ID { get; set; } // Static variable to keep track of the next ID
         public string Type { get; protected set; } // Type of the boat (e.g., Sailboat, Motorboat, etc.)
         public string Size { get; protected set; } // Size of the boat (e.g., Small, Medium, Large)
         public double Seats { get; protected set; } // Number of seats available on the boat
@@ -32,7 +33,7 @@ namespace HillerodSejlklub.Models
         {
             // Constructor to initialize the boat properties
 
-            Boat.nextID = nextID++; // Increment the static ID for each new boat
+            this.ID = _tempID++; // Increment the static ID for each new boat
             this.Type = type; 
             this.Size = size;
             this.Seats = seats;
@@ -43,6 +44,7 @@ namespace HillerodSejlklub.Models
             this.Name = name;
             this.RegistrationNumber = registrationNumber;
             this.IMGPath = imgpath;
+            Debug.WriteLine(ID);
         }
 
         public void AddMaintenanceLog(string logEntry)

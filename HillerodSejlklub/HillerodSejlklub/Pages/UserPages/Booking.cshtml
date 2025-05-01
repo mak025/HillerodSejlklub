@@ -13,14 +13,14 @@
                 <form method="post">
                     <div class="form-group container-fluid">
                         <label for="inputDateTime">Startid: </label>
-                        <input type="datetime-local" asp-for="Booking.StartDT" id="StartDateTime" aria-describedby="dateTimeHelp" placeholder="Enter Date/Time" step="3600">
+                        <input type="datetime-local" asp-for="_sDT" id="StartDateTime" aria-describedby="dateTimeHelp" placeholder="Enter Date/Time" step="3600">
                         <label for="inputDateTime">Sluttid: </label>
-                        <input type="datetime-local" asp-for="Booking.EndDT" id="EndDateTime" aria-describedby="dateTimeHelp" placeholder="Enter end time" step="3600" />
+                        <input type="datetime-local" asp-for="_eDT" id="EndDateTime" aria-describedby="dateTimeHelp" placeholder="Enter end time" step="3600" />
                     </div>
                     <div class="mt-2">
                         <label for="Lokale">Skift Lokale: </label>
                         <div class="form-group mt-2 d-inline">
-                            <select asp-for="Booking.BoatID" id="Lokale">
+                            <select asp-for="_boatID" id="Boats">
                                 @foreach (var boat in Model.Boats)
                                 {
                                     <option value="@boat.RegistrationNumber">@boat.Name</option>
@@ -32,7 +32,7 @@
                     <div class="mt-2">
                         <label for="Lokale">Skift Lokale: </label>
                         <div class="form-group mt-2 d-inline">
-                            <select asp-for="Booking.BoatID" id="Lokale">
+                            <select asp-for="_mID" id="Members">
                                 <option value="0">Select a room</option>
                                 <option value="1">Alpha</option>
                                 <option value="2">Beta</option>

@@ -7,6 +7,6 @@ namespace HillerodSejlklub.Interface
         public void Add(Member member);
         public void Seed();
         public List<Member> GetAll();
-        public Member Get(int id);
+        //public Member Get(int id);
     }
 }

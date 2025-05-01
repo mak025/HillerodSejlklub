@@ -1,0 +1,30 @@
+﻿@page
+@model HillerodSejlklub.Pages.MembersModel
+@{
+}
+
+
+
+<h2>Medlemmer</h2>
+<p>Antal medlemmer: @Model.Members?.Count</p>
+
+@if (Model.Members != null && Model.Members.Count > 0)
+{
+    <div style="display:flex; flex-wrap:wrap; gap:1rem;">
+        @foreach (var member in Model.Members)
+        {
+            <div style="border:1px solid #ccc; padding:1rem; width:200px; border-radius:8px;">
+                <img src="~/img/@member.ProfileImage" alt="Billede af @member.Name" width="100" />
+                <p><strong>@member.Name</strong></p>
+                <p>@member.Phone</p>
+                <p>@member.Email</p>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p>Ingen medlemmer fundet.</p>
+}
+
+

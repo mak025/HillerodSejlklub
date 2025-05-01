@@ -2,68 +2,114 @@ using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using HillerodSejlklub.Model;
+using HillerodSejlklub.Models;
+using HillerodSejlklub.Interface;
 
 namespace HillerodSejlklub.Pages
 {
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.AspNetCore.Mvc.RazorPages;
-    using System.Text.Json;
-
-    public class RegisterModel : PageModel
-    {
-        [BindProperty]
-        public string Username { get; set; }
-
-        [BindProperty]
-        public string Password { get; set; }
-
-        public string Message { get; set; }
-
-        private string filePath;
-
-        public RegisterModel(IWebHostEnvironment env)
+    
+        public class RegisterModel : PageModel
         {
-            filePath = Path.Combine(env.ContentRootPath, "Data", "login.json");
+            [BindProperty] public string Username { get; set; }
+            [BindProperty] public string Password { get; set; }
+            [BindProperty] public string Name { get; set; }
+            [BindProperty] public string Phone { get; set; }
+            [BindProperty] public string Email { get; set; }
+
+            public string Message { get; set; }
+
+            private readonly string loginFilePath;
+            private readonly string membersFilePath;
+
+            public RegisterModel(IWebHostEnvironment env)
+            {
+                loginFilePath = Path.Combine(env.ContentRootPath, "Data", "login.json");
+                membersFilePath = Path.Combine(env.ContentRootPath, "Data", "members.json");
+
         }
-
-        public void OnGet() { }
-
-        public IActionResult OnPost()
-        {
-            var newUser = new UserModel
+        public List<Member> Members { get; set; } = new();
+        public void OnGet()
             {
-                Username = Username,
-                PasswordHash = Password
-            };
+            }
 
-            List<UserModel> users = new();
-
-            // Hvis filen findes, indlæs eksisterende brugere
-            if (System.IO.File.Exists(filePath))
+            public IActionResult OnPost()
             {
-                var json = System.IO.File.ReadAllText(filePath);
-                if (!string.IsNullOrWhiteSpace(json))
+            var AvatarImages = new[]
+{
+               "Avatar1.jpg",
+               "Avatar2.jpg",
+               "Avatar3.jpg",
+               "Avatar4.jpg",
+               "Avatar5.jpg",
+               "Avatar6.jpg",
+               "Avatar7.jpg",
+               "Avatar8.jpg",
+               "Avatar9.jpg",
+               "Avatar10.jpg",
+               "Avatar11.jpg"
+};
+
+            var random = new Random();
+            var selectedImage = AvatarImages[random.Next(AvatarImages.Length)];
+
+            if (string.IsNullOrWhiteSpace(Username) || string.IsNullOrWhiteSpace(Password)
+                    || string.IsNullOrWhiteSpace(Name) || string.IsNullOrWhiteSpace(Phone) || string.IsNullOrWhiteSpace(Email))
                 {
+                    Message = "Alle felter skal udfyldes.";
+                    return Page();
+                }
+
+                // --- GEM LOGIN ---
+                var users = new List<UserModel>();
+                if (System.IO.File.Exists(loginFilePath))
+                {
+                    var json = System.IO.File.ReadAllText(loginFilePath);
                     users = JsonSerializer.Deserialize<List<UserModel>>(json) ?? new();
                 }
-            }
 
-            // Tjek om brugernavn allerede findes
-            if (users.Any(u => u.Username == Username))
-            {
-                Message = "Brugernavn findes allerede.";
+                if (users.Any(u => u.Username.Equals(Username, StringComparison.OrdinalIgnoreCase)))
+                {
+                    Message = "Brugernavn findes allerede.";
+                    return Page();
+                }
+
+                var newUser = new UserModel
+                {
+                    Username = Username,
+                    PasswordHash = Password // OBS: hash på sigt!
+                };
+
+                users.Add(newUser);
+                System.IO.File.WriteAllText(loginFilePath, JsonSerializer.Serialize(users, new JsonSerializerOptions { WriteIndented = true }));
+
+
+
+          
+
+
+
+            // --- GEM MEDLEM ---
+            var members = new List<Member>();
+                if (System.IO.File.Exists(membersFilePath))
+                {
+                    var json = System.IO.File.ReadAllText(membersFilePath);
+                    members = JsonSerializer.Deserialize<List<Member>>(json) ?? new();
+                }
+           
+
+            var newMember = new Member(Name, Phone, Email, Username, selectedImage)
+                {
+                    ID = members.Count + 1
+                };
+
+                members.Add(newMember);
+            System.IO.File.WriteAllText(membersFilePath,
+            JsonSerializer.Serialize(members, new JsonSerializerOptions { WriteIndented = true }));
+
+
+            Message = "Bruger og medlem oprettet!";
                 return Page();
             }
-
-            users.Add(newUser);
-
-            var updatedJson = JsonSerializer.Serialize(users, new JsonSerializerOptions { WriteIndented = true });
-            System.IO.File.WriteAllText(filePath, updatedJson);
-
-            Message = "Bruger oprettet!";
-            return Page();
         }
     }
 
-
-}
