@@ -1,6 +1,10 @@
 [
-  {
-    "Username": "Magnus",
-    "PasswordHash": "1234"
-  }
+    {
+        "Username": "Magnus",
+        "PasswordHash": "1234"
+    }
+    {
+        "Username": "Christian",
+        "PasswordHash": "1234"
+    }
 ]
