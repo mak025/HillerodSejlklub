@@ -1,10 +1,22 @@
 [
-    {
-        "Username": "Magnus",
-        "PasswordHash": "1234"
-    }
-    {
-        "Username": "Christian",
-        "PasswordHash": "1234"
-    }
+  {
+    "Username": "Magnus",
+    "PasswordHash": "1234"
+  },
+  {
+    "Username": "Christian",
+    "PasswordHash": "1234"
+  },
+  {
+    "Username": "Lucas",
+    "PasswordHash": "1234"
+  },
+  {
+    "Username": "Mikkel",
+    "PasswordHash": "1234"
+  },
+  {
+    "Username": "Marcus",
+    "PasswordHash": "1234"
+  }
 ]
