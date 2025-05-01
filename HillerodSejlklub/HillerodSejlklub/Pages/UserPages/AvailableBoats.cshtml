@@ -11,7 +11,6 @@
     <div class="row row-cols-md-2 row-cols-lg-3">
         @foreach (var boat in Model.AvailableBoats)
         {
-            <form method="post" asp-page-handler="Book" name="Book" id="Book">
                 <div class="col">
                     <div class="card shadow-sm mt-3">
                         <div class="card-body text-start">
@@ -25,30 +24,10 @@
                                     <p class="card-text">Størrelse: @(boat.Size)</p>
 
                                 </div>
-
-                               @*  <div class="col">
-                                    <div class="d-flex justify-content-end gap-3 mt-2">
-                                        <input type="hidden" value="@Model.filterDate" name="dateboat" />
-                                        <input type="hidden" value="@boat.RegistrationNumber" name="boatReg" />
-                                        <button class="btn btn-outline-primary" title="Book">
-                                            Book båd
-                                        </button>
-                                    </div>
-                                </div> *@
                             </div>
-                        </div>
-                        <div class=" row row-cols-auto row-cols-5">
-                            @for (int i = 7; i < 17; i++)
-                            {
-                                @* var bgColor = Model.BookChecker(i, boat.ID) ? "color: red;" : "color: green;";
-                                <div class="col text-center" style="@bgColor">
-                                    <p>@i:00</p>
-                                </div> *@
-                            }
                         </div>
                     </div>
                 </div>
-            </form>
 
 
         }

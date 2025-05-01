@@ -12,10 +12,13 @@ namespace HillerodSejlklub.Pages.UserPages
         private BoatService _boatService;
         private MemberService _memberService;
 
+        public DateTime BookingStart {  get; set; }
+        public DateTime BookingEnd { get; set; }
         public List<int> _mID = new List<int>();
         public int _boatID;
         public DateTime _sDT;
         public DateTime _eDT;
+        [BindProperty]
         public List<Member> Members { get; private set; }
         [BindProperty]
         public List<Boat> Boats { get; private set; }
@@ -35,9 +38,10 @@ namespace HillerodSejlklub.Pages.UserPages
              
         }
 
-        public IActionResult OnPostBook()
+        public IActionResult OnPost()
         {
             _bookingService.Add(new Booking(_mID, _boatID, _sDT, _eDT));
+            Debug.WriteLine("booking added");
             return RedirectToPage("/Index");
         }
     }

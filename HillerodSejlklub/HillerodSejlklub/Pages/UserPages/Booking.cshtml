@@ -13,35 +13,33 @@
                 <form method="post">
                     <div class="form-group container-fluid">
                         <label for="inputDateTime">Startid: </label>
-                        <input type="datetime-local" asp-for="_sDT" id="StartDateTime" aria-describedby="dateTimeHelp" placeholder="Enter Date/Time" step="3600">
+                        <input type="datetime-local" asp-for="_sDT" id="BookingStart" aria-describedby="dateTimeHelp" placeholder="Enter Date/Time" step="3600">
                         <label for="inputDateTime">Sluttid: </label>
-                        <input type="datetime-local" asp-for="_eDT" id="EndDateTime" aria-describedby="dateTimeHelp" placeholder="Enter end time" step="3600" />
+                        <input type="datetime-local" asp-for="_eDT" id="BookingEnd" aria-describedby="dateTimeHelp" placeholder="Enter end time" step="3600" />
                     </div>
                     <div class="mt-2">
-                        <label for="Lokale">Skift Lokale: </label>
+                        <label for="inputBoatID">Vælg båd: </label>
                         <div class="form-group mt-2 d-inline">
                             <select asp-for="_boatID" id="Boats">
                                 @foreach (var boat in Model.Boats)
                                 {
-                                    <option value="@boat.RegistrationNumber">@boat.Name</option>
-
+                                    <option value="@boat.ID">@boat.Name</option>
                                 }
                             </select>
                         </div>
                     </div>
                     <div class="mt-2">
-                        <label for="Lokale">Skift Lokale: </label>
+                        <form method="post">
+                        <label for="inputMember">Vælg medlemmer: </label>
                         <div class="form-group mt-2 d-inline">
                             <select asp-for="_mID" id="Members">
-                                <option value="0">Select a room</option>
-                                <option value="1">Alpha</option>
-                                <option value="2">Beta</option>
-                                <option value="3">Charlie</option>
-                                <option value="4">Delta</option>
-                                <option value="5">Echo</option>
-                                <option value="6">Foxtrot</option>
+                                @foreach (var member in Model.Members)
+                                {
+                                    <option value="@member.ID">@member.Name</option>
+                                }
                             </select>
                         </div>
+                        </form>
                     </div>
                     
                     <button type="submit" class="btn btn-primary mt-5">Submit</button>
@@ -51,4 +49,13 @@
                 </div>
                 </div>
     </container-sm>
+    <script> //script to set DateTime forms to current time
+        // Get the current date and time
+        const now = new Date().toISOString().slice(0, 16); // Slices to match the datetime-local format
+
+        // Set the value attribute of the input fields
+        document.getElementById('BookingStart').value = now;
+        document.getElementById('BookingEnd').value = now;
+    </script>
+
     </body>
