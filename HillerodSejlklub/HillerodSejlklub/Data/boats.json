@@ -1,0 +1,80 @@
+[
+    {
+        "Type": "Sailboat",
+        "Size": "Medium",
+        "Seats": 4,
+        "Material": "Fiberglass",
+        "Color": "White",
+        "Weight": 500,
+        "YearBuilt": 2015,
+        "Name": "Sea Breeze",
+        "RegistrationNumber": "SB123",
+        "IMGPath": "../img/sailboat1.jpg",
+        "IsAvailable": true
+    },
+    {
+        "Type": "Sailboat",
+        "Size": "Large",
+        "Seats": 6,
+        "Material": "Fiberglass",
+        "Color": "Blue",
+        "Weight": 700,
+        "YearBuilt": 2018,
+        "Name": "Ocean Explorer",
+        "RegistrationNumber": "SB456",
+        "IMGPath": "../img/sailboat2.jpg",
+        "IsAvailable": true
+    },
+    {
+        "Type": "Motorboat",
+        "Size": "Small",
+        "Seats": 2,
+        "Material": "Aluminum",
+        "Color": "Red",
+        "Weight": 300,
+        "YearBuilt": 2020,
+        "Name": "Speedster",
+        "RegistrationNumber": "MB123",
+        "IMGPath": "../img/motorboat1.jpg",
+        "IsAvailable": true
+    },
+    {
+        "Type": "Motorboat",
+        "Size": "Medium",
+        "Seats": 4,
+        "Material": "Aluminum",
+        "Color": "Black",
+        "Weight": 500,
+        "YearBuilt": 2019,
+        "Name": "Wave Rider",
+        "RegistrationNumber": "MB456",
+        "IMGPath": "../img/motorboat2.jpg",
+        "IsAvailable": true
+    },
+    {
+        "Type": "Rowboat",
+        "Size": "Small",
+        "Seats": 2,
+        "Material": "Wood",
+        "Color": "Brown",
+        "Weight": 200,
+        "YearBuilt": 2010,
+        "Name": "River Runner",
+        "RegistrationNumber": "RB123",
+        "IMGPath": "../img/rowboat1.jpg",
+        "IsAvailable": true
+    },
+    {
+        "Type": "Rowboat",
+        "Size": "Large",
+        "Seats": 4,
+        "Material": "Wood",
+        "Color": "Green",
+        "Weight": 400,
+        "YearBuilt": 2012,
+        "Name": "Lake Cruiser",
+        "RegistrationNumber": "RB456",
+        "IMGPath": "../img/rowboat2.jpg",
+        "IsAvailable": true
+    }
+]

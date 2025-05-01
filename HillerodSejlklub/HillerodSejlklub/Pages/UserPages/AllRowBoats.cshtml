@@ -1,10 +1,10 @@
 ﻿@page
-@model HillerodSejlklub.Pages.UserPages.AvailableBoatsModel
+@model HillerodSejlklub.Pages.UserPages.AvailableRowBoatsModel
 @{
     ViewData["Title"] = "Vores Robåde";
 }
 
-<h1>Available Boats</h1>
+<h1>Available RowBoats</h1>
 </table>
 
 <div class="container">
@@ -12,7 +12,7 @@
     <div class="row row-cols-md-2 row-cols-lg-3">
         @foreach (var boat in Model.AvailableBoats)
         {
-            if (boat.Type == "RowBoat")
+            if (boat.Type == "Rowboat")
             {
                 <form method="post" asp-page-handler="Book" name="Book" id="Book">
                     <div class="col">

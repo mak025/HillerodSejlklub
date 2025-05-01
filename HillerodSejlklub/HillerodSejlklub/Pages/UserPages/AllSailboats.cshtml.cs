@@ -3,23 +3,20 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using HillerodSejlklub.Models;
 using HillerodSejlklub.Interface;
 using System.Collections.Generic;
-using HillerodSejlklub.Service;
+using System.Linq;
 using System.Diagnostics;
+using HillerodSejlklub.Repo;
 
 namespace HillerodSejlklub.Pages.UserPages
 {
-    public class AvailableBoatsModel : PageModel
+    public class AvailableSailBoatsModel : PageModel
     {
-        private readonly BoatCollection _boatCollection;
+        private readonly IBoat _boatCollection;
         public List<Boat> AvailableBoats { get; private set; }
 
-        public AvailableBoatsModel()
+        public AvailableSailBoatsModel(IBoat boatCollection)
         {
-            // Fixing typo in field name '_boatColleciton' to '_boatCollection'
-            _boatCollection = new BoatCollection();
-
-            // Initializing 'AvailableBoats' to avoid nullability issues
-            //AvailableBoats = new List<Boat>();
+            _boatCollection = boatCollection;
         }
 
         public void OnGet()
@@ -30,20 +27,19 @@ namespace HillerodSejlklub.Pages.UserPages
                 // Redirect to login page if not logged in
                 Response.Redirect("/Index");
             }
-            // Fixing invalid use of 'base' keyword and ensuring proper LINQ usage
-            AvailableBoats = _boatCollection
-                .GetAllBoats() // Assuming this method exists in 'BoatCollection'
-                .Where(boat => boat.IsAvailable) // Correcting 'base' to 'boat'
+
+            // Fetch available sailboats from the JSON file
+            AvailableBoats = _boatCollection.GetAllBoats()
+                .Where(boat => boat.Type == "Sailboat" && boat.IsAvailable)
                 .ToList();
+
+            // Debug: Check if sailboats are being loaded
+            Debug.WriteLine($"Available Sailboats Count: {AvailableBoats.Count}");
+            foreach (var boat in AvailableBoats)
+            {
+                Debug.WriteLine($"Boat Name: {boat.Name}, Type: {boat.Type}, IsAvailable: {boat.IsAvailable}");
+            }
         }
-        //public IActionResult OnPostBook(string boatReg)
-        //{
-        //    Debug.WriteLine("hej");
-
-        //    //Boat bound = _boatCollection.Get(boatReg);
-
-        //    Debug.WriteLine("onPostBook ");
-        //    return RedirectToPage("./Booking", new { boatChoice = boatReg });
-        //}
     }
 }
+

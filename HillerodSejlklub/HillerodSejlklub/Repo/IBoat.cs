@@ -6,8 +6,6 @@ namespace HillerodSejlklub.Repo
     {
         public void Add(Boat boat);
 
-        public void Seed();
-
         public List<Boat> GetAllBoats();
 
         public Boat Get(string boatReg);
