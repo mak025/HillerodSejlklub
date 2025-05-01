@@ -21,6 +21,11 @@
     color: #192862 !important;
     align-content: center;
 }
+
+#LogoutBtn {
+    padding-top: 60vh;
+}
+
 html {
     scroll-behavior: smooth;
     font-family: Poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -30,7 +35,7 @@ html {
 body {
     min-height: 100vh;
     max-height: 100dvh;
-/*    background-color: var(--base-clr);*/
+    /*    background-color: var(--base-clr);*/
     /*color: var(--text-clr);*/
     display: grid;
     grid-template-columns: auto 1fr;
@@ -168,13 +173,52 @@ main {
 }
 
     main p {
-      /*  color: var(--secondary-text-clr);*/
+        /*  color: var(--secondary-text-clr);*/
         margin-top: 5px;
         margin-bottom: 15px;
     }
 
 
 @media(max-width: 800px) {
+    /* Ensure the logout button matches the other navbar items */
+    #sideBar form {
+        width: 60px;
+        height: 60px;
+        padding: 0;
+        border-radius: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        padding: 1em;
+    }
+        #sideBar form button span {
+            display: none; /* Hide the text */
+        }
+        #sideBar form button {
+            justify-content: center; /* Center the icons */
+        }
+
+        #sideBar form button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+            #sideBar form button svg {
+                fill: var(--text-clr);
+                flex-shrink: 0;
+            }
+
+            #sideBar form button:hover {
+                background-color: var(--hover-clr);
+            }
+
     body {
         grid-template-columns: 1fr;
     }
@@ -199,7 +243,7 @@ main {
         bottom: 0;
         display: flex;
         justify-content: center; /* Center the items horizontally */
-        z-index: 9999 !important; 
+        z-index: 9999 !important;
         > ul
 
 {
@@ -252,6 +296,7 @@ a {
     width: auto;
     justify-content: center;
 }
+
 
 }
 }

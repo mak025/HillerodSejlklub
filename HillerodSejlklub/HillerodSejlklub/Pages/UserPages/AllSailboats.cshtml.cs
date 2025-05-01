@@ -24,6 +24,12 @@ namespace HillerodSejlklub.Pages.UserPages
 
         public void OnGet()
         {
+            var username = HttpContext.Session.GetString("Username");
+            if (string.IsNullOrEmpty(username))
+            {
+                // Redirect to login page if not logged in
+                Response.Redirect("/Index");
+            }
             // Fixing invalid use of 'base' keyword and ensuring proper LINQ usage
             AvailableBoats = _boatCollection
                 .GetAllBoats() // Assuming this method exists in 'BoatCollection'

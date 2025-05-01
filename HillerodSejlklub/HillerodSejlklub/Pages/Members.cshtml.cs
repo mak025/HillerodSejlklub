@@ -20,7 +20,13 @@ namespace HillerodSejlklub.Pages
          
             public void OnGet()
             {
-                if (System.IO.File.Exists(membersFilePath))
+            var username = HttpContext.Session.GetString("Username");
+            if (string.IsNullOrEmpty(username))
+            {
+                // Redirect to login page if not logged in
+                Response.Redirect("/Index");
+            }
+            if (System.IO.File.Exists(membersFilePath))
                 {
                     var json = System.IO.File.ReadAllText(membersFilePath);
 

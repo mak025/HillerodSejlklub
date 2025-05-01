@@ -49,9 +49,16 @@ namespace HillerodSejlklub.Pages
                 return Page();
             }
 
+            // Store the username in the session
+            HttpContext.Session.SetString("Username", user.Username);
             Message = "Login lykkedes!";
             // return RedirectToPage("/Members"); ← aktiver når test virker
             return RedirectToPage("/Forside");
+        }
+        public IActionResult OnPostLogout()
+        {
+            HttpContext.Session.Clear(); // Clear all session data
+            return RedirectToPage("/Index"); // Redirect to the login page
         }
     }
 }

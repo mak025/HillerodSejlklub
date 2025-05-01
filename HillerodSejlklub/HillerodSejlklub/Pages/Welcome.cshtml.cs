@@ -7,6 +7,13 @@ namespace HillerodSejlklub.Pages
     {
         public void OnGet()
         {
+            var username = HttpContext.Session.GetString("Username");
+            if (string.IsNullOrEmpty(username))
+            {
+                // Redirect to login page if not logged in
+                Response.Redirect("/Index");
+            }
         }
+
     }
 }
