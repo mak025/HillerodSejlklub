@@ -1,85 +1,43 @@
-﻿@page  
-@model IndexModel  
-@{  
-   ViewData["Title"] = "Home page";  
-}  
+﻿
+@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Login";
+    ViewData["ShowNavbar"] = false;
+}
 
 
+<h2>Log ind</h2>
 
-<div class="container mt-5">
-    <!-- Hero Section -->
-    <div class="jumbotron text-center bg-light p-5 rounded">
-        <h1 class="display-4">Velkommen til Hillerød Sejlklub</h1>
-        <p class="lead">Udforsk den smukke sø i Hillerød med vores brede udvalg af både. Perfekt for både lokale og turister!</p>
+<form method="post">
+    <div>
+        <label asp-for="Username"></label>
+        <input asp-for="Username" />
+    </div>
+    <div>
+        <label asp-for="Password"></label>
+        <input asp-for="Password" type="password" />
     </div>
 
-    <!-- About Section -->
-    <div class="row mt-5">
-        <div class="col-md-6">
-            <h2 id="AboutHeader">About Us</h2>
-            <p>We are a local company dedicated to providing an unforgettable experience on the lake. Whether you're looking for a relaxing day or an adventurous outing, we have the perfect boat for you.</p>
-        </div>
-        <div class="col-md-6">
-            <img src="/img/lake-view.jpg" alt="Lake View" class="img-fluid rounded">
-        </div>
-    </div>
+    <button type="submit">Log ind</button>
 
-    <!-- Boat Categories Section -->
-    <div class="row mt-5">
-        <h2 class="text-center w-100">Our Boat Categories</h2>
-        <div class="col-md-4 text-center mt-3">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title">Sailboats</h5>
-                    <p class="card-text">Experience the tranquility of the lake with our premium sailboats.</p>
-                    <a href="/UserPages/AllSailboats" class="btn btn-outline-primary">View Sailboats</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 text-center mt-3">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title">Motorboats</h5>
-                    <p class="card-text">Enjoy speed and convenience with our modern motorboats.</p>
-                    <a href="/UserPages/AllMotorboats" class="btn btn-outline-primary">View Motorboats</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 text-center mt-3">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title">Rowboats</h5>
-                    <p class="card-text">Perfect for a peaceful and intimate experience on the water.</p>
-                    <a href="/UserPages/AvailableBoats" class="btn btn-outline-primary">View Rowboats</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- 👇 Opret bruger-knap -->
+    <a asp-page="/Register" class="btn btn-secondary">Opret bruger</a>
+</form>
 
-    <!-- Contact Section -->
-    <div class="row mt-5">
-        <h2 class="text-center w-100">Contact Us</h2>
-        <div class="col-md-6">
-            <p><strong>Address:</strong> Hillerød Lakefront, Hillerød, Denmark</p>
-            <p><strong>Phone:</strong> +45 123 456 789</p>
-            <p><strong>Email:</strong> info@hillerodboats.dk</p>
-        </div>
-        <div class="col-md-6">
-            <form method="post" action="/Contact">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" name="name" required>
-                </div>
-                <div class="form-group mt-3">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
-                </div>
-                <div class="form-group mt-3">
-                    <label for="message">Message</label>
-                    <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary mt-3">Send Message</button>
-            </form>
-        </div>
-    </div>
-</div>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <p style="color:red">@Model.ErrorMessage</p>
+}
+
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <p style="color:green">@Model.Message</p>
+}
+
+
+    
+
+

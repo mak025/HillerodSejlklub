@@ -1,54 +1,58 @@
+﻿
+using System.IO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using HillerodSejlklub.Models;
-using HillerodSejlklub.Service;
-using HillerodSejlklub.Interface;
-using System.Diagnostics;
-using System.ComponentModel.DataAnnotations;
-using System.Data;
+using System.Text.Json;
+using HillerodSejlklub.Model;
 
-namespace HillerodSejlklub.Pages;
-
-public class IndexModel : PageModel
+namespace HillerodSejlklub.Pages
 {
-    private readonly BookingService _bookingService;
-    private readonly BoatService _boatService;
-    [BindProperty]
-    public List<Boat> Boats { get; set; }
-
-    public List<Booking> Bookings { get; set; }
-    //List<Booking> _activeBookings = new List<Booking>();
-
-    private readonly ILogger<IndexModel> _logger;
-
-
-    //bool _isBooked = false;
-    //[BindProperty]
-    //public int filterCap { get; set; }
-    //[BindProperty]
-    //public bool filterWB { get; set; }
-    //[BindProperty]
-    //public bool filterSB { get; set; }
-    //[BindProperty]
-    //public DateOnly filterDate { get; set; }
-
-    //bool dateIsSet = false;
-
-    public IndexModel(ILogger<IndexModel> logger, BoatService boatS, BookingService bookingS)
+    public class LoginModel : PageModel
     {
-        //if (!dateIsSet)
-        //    filterDate = DateOnly.FromDateTime(DateTime.Now.Date);
+        [BindProperty] public string Username { get; set; }
+        [BindProperty] public string Password { get; set; }
 
-        _logger = logger;
-        Boats = boatS.GetAll();
-        _boatService = boatS;
-        Bookings = bookingS.GetAll();
-        _bookingService = bookingS;
+        public string ErrorMessage { get; set; }
+        public string Message { get; set; }
+
+        private readonly string loginFilePath;
+
+        public LoginModel(IWebHostEnvironment env)
+        {
+            loginFilePath = Path.Combine(env.ContentRootPath, "Data", "login.json");
+        }
+
+        public void OnGet() { }
+
+        public IActionResult OnPost()
+        {
+            if (string.IsNullOrWhiteSpace(Username) || string.IsNullOrWhiteSpace(Password))
+            {
+                ErrorMessage = "Udfyld både brugernavn og adgangskode.";
+                return Page();
+            }
+
+            var users = new List<UserModel>();
+            if (System.IO.File.Exists(loginFilePath))
+            {
+                var json = System.IO.File.ReadAllText(loginFilePath);
+                users = JsonSerializer.Deserialize<List<UserModel>>(json) ?? new();
+            }
+
+            var user = users.FirstOrDefault(u =>
+                u.Username.Equals(Username, StringComparison.OrdinalIgnoreCase) &&
+                u.PasswordHash == Password);
+
+            if (user == null)
+            {
+                ErrorMessage = "Forkert brugernavn eller adgangskode.";
+                return Page();
+            }
+
+            Message = "Login lykkedes!";
+            // return RedirectToPage("/Members"); ← aktiver når test virker
+            return RedirectToPage("/Forside");
+        }
     }
-
-    public void OnGet()
-    {
-
-    }
-    
 }
+
