@@ -17,6 +17,6 @@ html {
   min-height: 100%;
 }
 
-body {
-  margin-bottom: 60px;
+#AboutHeader{
+    padding-top: 15vh;
 }

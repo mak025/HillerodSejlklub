@@ -138,4 +138,24 @@ namespace HillerodSejlklub.Models
         }
     }
 
+    public class RowBoat : Boat
+    // Derived class representing a motorboat
+    {
+        public int NumberOfOars { get; private set; } // Number of oars available
+
+        public RowBoat(string type, string size, double seats, string material, string color, double weight, int yearBuilt, string name, string registrationNumber, string imgpath, int NumberOfOars)
+            : base(type, size, seats, material, color, weight, yearBuilt, name, registrationNumber, imgpath)
+        {
+            // Constructor to initialize the motorboat properties
+            this.NumberOfOars = NumberOfOars;
+        }
+
+        public string GetMotorBoatDetails()
+        // Method to get the details of the motorboat
+        {
+            return GetBoatDetails() + "\n" +
+                   $"Amount of Oars: {NumberOfOars}";
+        }
+    }
+
 }

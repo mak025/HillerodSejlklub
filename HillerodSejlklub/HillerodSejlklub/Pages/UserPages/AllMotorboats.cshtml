@@ -1,0 +1,56 @@
+﻿@page
+@model HillerodSejlklub.Pages.UserPages.AvailableBoatsModel
+@{
+	ViewData["Title"] = "Vores Motorbåde";
+}
+
+<h1>Available Boats</h1>
+</table>
+
+<div class="container">
+    <!--boat CARDS-->
+    <div class="row row-cols-md-2 row-cols-lg-3">
+        @foreach (var boat in Model.AvailableBoats)
+        {
+            if (boat.Type == "Motorboat")
+            {
+                <form method="post" asp-page-handler="Book" name="Book" id="Book">
+                    <div class="col">
+                        <div class="card shadow-sm mt-3">
+                            <div class="card-body text-start">
+
+                                <h5 class="card-title text-center"><b>@boat.Name</b></h5>
+                                <!--<img src="Media/boat.ImgPath" class="card-img-top" alt="boat Image">-->
+                                <div class="row">
+                                    <div class="col mt-1">
+                                        <p class="card-text">Antal sæder: @boat.Seats personer </p>
+                                        <p class="card-text">Type: @(boat.Type)</p>
+                                        <p class="card-text">Størrelse: @(boat.Size)</p>
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="d-flex justify-content-end gap-3 mt-2">
+                                            <input type="hidden" value="@boat.RegistrationNumber" name="idboat" />
+                                            <button class="btn btn-outline-primary" title="Book">
+                                                Book boat
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-cols-auto row-cols-5">
+                                @for (int i = 7; i < 17; i++)
+                                {
+                                    @* var bgColor = Model.BookChecker(i, boat.ID) ? "color: red;" : "color: green;"; *@
+                                    @* <div class="col text-center" style="@bgColor">
+                                    <p>@i:00</p>
+                                </div> *@
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            }
+        }
+    </div>
+</div>
