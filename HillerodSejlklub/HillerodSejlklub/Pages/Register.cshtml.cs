@@ -15,8 +15,9 @@ namespace HillerodSejlklub.Pages
             [BindProperty] public string Name { get; set; }
             [BindProperty] public string Phone { get; set; }
             [BindProperty] public string Email { get; set; }
+            [BindProperty] public bool isadministrator { get; set; } = false; // Default value is false
 
-            public string Message { get; set; }
+        public string Message { get; set; }
 
             private readonly string loginFilePath;
             private readonly string membersFilePath;
@@ -97,7 +98,7 @@ namespace HillerodSejlklub.Pages
                 }
            
 
-            var newMember = new Member(Name, Phone, Email, Username, selectedImage)
+            var newMember = new Member(Name, Phone, Email, Username, selectedImage, isadministrator)
                 {
                     ID = members.Count + 1
                 };

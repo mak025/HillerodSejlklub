@@ -63,5 +63,16 @@ namespace HillerodSejlklub.Interface
             var json = JsonSerializer.Serialize(_boats, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(_filePath, json);
         }
+        public void Remove(Boat boat)
+        {
+            // Remove the boat from the list
+            _boats.Remove(boat);
+
+            // Save the updated list back to the JSON file
+            SaveBoatsToFile();
+        }
+
+
+
     }
 }

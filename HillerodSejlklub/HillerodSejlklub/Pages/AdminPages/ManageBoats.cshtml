@@ -1,0 +1,142 @@
+﻿@page
+@model HillerodSejlklub.Pages.AdminPages.ManageBoatsModel
+@{
+    ViewData["Title"] = "Administrer Både";
+}
+
+<h1>Administrer Både</h1>
+
+<div class="container mt-4">
+    <!-- Add Boat Button -->
+    <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#addBoatModal">Tilføj Ny Båd</button>
+
+    <!-- Boat Table -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Navn</th>
+                <th>Type</th>
+                <th>Størrelse</th>
+                <th>Antal Sæder</th>
+                <th>Handlinger</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var boat in Model.Boats)
+            {
+                <tr>
+                    <td>@boat.Name</td>
+                    <td>@boat.Type</td>
+                    <td>@boat.Size</td>
+                    <td>@boat.Seats</td>
+                    <td>
+                    <td>
+                        <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editBoatModal" onclick="setEditBoat('@boat.ID')">Rediger</button>
+                        <form method="post" asp-page-handler="DeleteBoat" asp-route-id="@boat.ID" style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm">Slet</button>
+                        </form>
+                    </td>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Add Boat Modal -->
+<div class="modal fade" id="addBoatModal" tabindex="-1" aria-labelledby="addBoatModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addBoatModalLabel">Tilføj Ny Båd</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" asp-page-handler="AddBoat">
+                    <div class="mb-3">
+                        <label for="boatName" class="form-label">Navn</label>
+                        <input type="text" class="form-control" id="boatName" name="Name" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="boatType" class="form-label">Type</label>
+                        <input type="text" class="form-control" id="boatType" name="Type" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="boatSize" class="form-label">Størrelse</label>
+                        <input type="text" class="form-control" id="boatSize" name="Size" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="boatSeats" class="form-label">Antal Sæder</label>
+                        <input type="number" class="form-control" id="boatSeats" name="Seats" required />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Luk</button>
+                        <button type="submit" class="btn btn-primary">Tilføj</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Boat Modal -->
+<div class="modal fade" id="editBoatModal" tabindex="-1" aria-labelledby="editBoatModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editBoatModalLabel">Rediger Båd</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" asp-page-handler="EditBoat">
+                    <input type="hidden" id="editBoatId" name="Id" />
+                    <div class="mb-3">
+                        <label for="editBoatName" class="form-label">Navn</label>
+                        <input type="text" class="form-control" id="editBoatName" name="Name" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="editBoatType" class="form-label">Type</label>
+                        <input type="text" class="form-control" id="editBoatType" name="Type" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="editBoatSize" class="form-label">Størrelse</label>
+                        <input type="text" class="form-control" id="editBoatSize" name="Size" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="editBoatSeats" class="form-label">Antal Sæder</label>
+                        <input type="number" class="form-control" id="editBoatSeats" name="Seats" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="editBoatMaterial" class="form-label">Materiale</label>
+                        <input type="text" class="form-control" id="editBoatMaterial" name="Material" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="editBoatColor" class="form-label">Farve</label>
+                        <input type="text" class="form-control" id="editBoatColor" name="Color" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="editBoatWeight" class="form-label">Vægt</label>
+                        <input type="number" class="form-control" id="editBoatWeight" name="Weight" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="editBoatYearBuilt" class="form-label">Byggeår</label>
+                        <input type="number" class="form-control" id="editBoatYearBuilt" name="YearBuilt" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="editBoatRegistrationNumber" class="form-label">Registreringsnummer</label>
+                        <input type="text" class="form-control" id="editBoatRegistrationNumber" name="RegistrationNumber" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="editBoatIMGPath" class="form-label">Billede Sti</label>
+                        <input type="text" class="form-control" id="editBoatIMGPath" name="IMGPath" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Luk</button>
+                        <button type="submit" class="btn btn-primary">Gem Ændringer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

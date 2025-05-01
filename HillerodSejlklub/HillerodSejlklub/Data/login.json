@@ -1,22 +1,32 @@
 [
-  {
-    "Username": "Magnus",
-    "PasswordHash": "1234"
-  },
-  {
-    "Username": "Christian",
-    "PasswordHash": "1234"
-  },
-  {
-    "Username": "Lucas",
-    "PasswordHash": "1234"
-  },
-  {
-    "Username": "Mikkel",
-    "PasswordHash": "1234"
-  },
-  {
-    "Username": "Marcus",
-    "PasswordHash": "1234"
-  }
+    {
+        "Username": "Magnus",
+        "PasswordHash": "1234",
+        "IsAdministrator": false
+    },
+    {
+        "Username": "Christian",
+        "PasswordHash": "1234",
+        "IsAdministrator": false
+    },
+    {
+        "Username": "Lucas",
+        "PasswordHash": "1234",
+        "IsAdministrator": false
+    },
+    {
+        "Username": "Mikkel",
+        "PasswordHash": "1234",
+        "IsAdministrator": false
+    },
+    {
+        "Username": "admin",
+        "PasswordHash": "admin123",
+        "IsAdministrator": true
+    },
+    {
+        "Username": "Marcus",
+        "PasswordHash": "1234",
+        "IsAdministrator": false
+    }
 ]

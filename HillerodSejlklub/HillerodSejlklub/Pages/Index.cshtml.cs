@@ -51,6 +51,10 @@ namespace HillerodSejlklub.Pages
 
             // Store the username in the session
             HttpContext.Session.SetString("Username", user.Username);
+
+            // Store the IsAdministrator value in the session
+            HttpContext.Session.SetString("IsAdministrator", user.IsAdministrator.ToString().ToLower());
+
             Message = "Login lykkedes!";
             // return RedirectToPage("/Members"); ← aktiver når test virker
             return RedirectToPage("/Forside");
