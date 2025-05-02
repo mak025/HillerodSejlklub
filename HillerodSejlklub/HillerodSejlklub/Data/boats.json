@@ -11,7 +11,7 @@
     "Name": "Sea Breeze",
     "RegistrationNumber": "SB123",
     "IsAvailable": true,
-    "MaintenanceLog": [],
+    "MaintenanceLog": ["Punkteret", "test"],
     "LastMaintenanceDate": "0001-01-01T00:00:00",
     "NeedsRepair": false,
     "IMGPath": "../img/sailboat1.jpg"

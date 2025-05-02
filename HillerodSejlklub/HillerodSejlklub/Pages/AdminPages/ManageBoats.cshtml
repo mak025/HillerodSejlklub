@@ -35,7 +35,7 @@
                         <form method="post" asp-page-handler="DeleteBoat" asp-route-id="@boat.ID" style="display:inline;">
                             <button type="submit" class="btn btn-danger btn-sm">Slet</button>  
                         </form>
-                        <button style="background-color:powderblue;" type="submit" class="btn btn-danger btn-sm">Log</button>
+                        <button method="post" asp-page-handler="Log" asp-route-id="@boat" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#logModal" onclick="Log('@boat')">Log</button>
                     </td>
                     </td>
                 </tr>
@@ -136,6 +136,27 @@
                         <button type="submit" class="btn btn-primary">Gem Ændringer</button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Log Modal -->
+<div class="modal fade" id="logModal" tabindex="-1" aria-labelledby="LogModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="logModalLabel">Vedligeholdelses log</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>    
+            <div class="model-body">
+            @foreach (string entry in Model.MaintenanceLog)
+            {
+                <p>- @entry</p>
+            }
+            <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Luk</button>
+                    </div>
             </div>
         </div>
     </div>

@@ -12,7 +12,8 @@ namespace HillerodSejlklub.Pages.AdminPages
         private readonly BoatCollection _boatCollection;
 
         public List<Boat> Boats { get; set; } = new();
-
+        [BindProperty]
+        public List<string> MaintenanceLog {  get; set; } = new();
         [BindProperty]
         public int Id { get; set; }
 
@@ -82,12 +83,14 @@ namespace HillerodSejlklub.Pages.AdminPages
 
         public IActionResult OnPostEditBoat()
         {
+            Debug.WriteLine("OnPostEdit");
             // Find the boat to edit
             var boatToEdit = _boatCollection.GetAllBoats().FirstOrDefault(b => b.ID == Id);
             if (boatToEdit == null)
             {
                 return NotFound();
             }
+            Debug.WriteLine(boatToEdit.Name);
 
             // Update the boat details
             boatToEdit.Name = Name;
@@ -122,8 +125,10 @@ namespace HillerodSejlklub.Pages.AdminPages
 
             return RedirectToPage();
         }
-         public IActionResult OnPostLog(int id)
+         public IActionResult OnPostLog(Boat boat)
         {
+            Debug.WriteLine("OnPostLog");
+            MaintenanceLog = boat.MaintenanceLog;
             return RedirectToPage();
         }
 
