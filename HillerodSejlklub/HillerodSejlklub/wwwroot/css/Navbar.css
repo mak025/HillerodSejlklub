@@ -20,6 +20,7 @@
 .logo {
     color: #ffffff !important;
     align-content: center;
+    padding-left: 1em;
 }
 /* Position the logout button at the bottom-left of the sidebar */
 #sideBar form {
