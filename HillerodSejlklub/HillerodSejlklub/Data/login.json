@@ -7,7 +7,7 @@
   {
     "Username": "Christian",
     "PasswordHash": "1234",
-    "IsAdministrator": false
+    "IsAdministrator": true
   },
   {
     "Username": "Lucas",
