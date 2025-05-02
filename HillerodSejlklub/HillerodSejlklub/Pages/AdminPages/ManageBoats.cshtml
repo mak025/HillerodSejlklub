@@ -149,8 +149,8 @@
                 <h5 class="modal-title" id="logModalLabel">Vedligeholdelses log</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>    
-            <div class="model-body">
-            @foreach (string entry in MaintenanceLog)
+            <div class="modal-body">
+            @foreach (string entry in Model.MaintenanceLog)
             {
                 <p>- @entry</p>
             }
