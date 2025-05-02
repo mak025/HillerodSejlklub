@@ -5,7 +5,8 @@
     "Username": "Magnus",
     "Phone": "69696969",
     "Email": "Magnus@gmail.com",
-    "ProfileImage": "Avatar9.jpg"
+    "ProfileImage": "Avatar9.jpg",
+    "IsAdministrator": false
   },
   {
     "ID": 2,
@@ -13,7 +14,8 @@
     "Username": "Christian",
     "Phone": "22222222",
     "Email": "Christian@gmail.com",
-    "ProfileImage": "Avatar2.jpg"
+    "ProfileImage": "Avatar2.jpg",
+    "IsAdministrator": false
   },
   {
     "ID": 3,
@@ -21,7 +23,8 @@
     "Username": "Lucas",
     "Phone": "33333333",
     "Email": "Lucas@gmail.com",
-    "ProfileImage": "Avatar10.jpg"
+    "ProfileImage": "Avatar10.jpg",
+    "IsAdministrator": false
   },
   {
     "ID": 4,
@@ -29,7 +32,8 @@
     "Username": "Mikkel",
     "Phone": "44444444",
     "Email": "Mikkel@gmail.com",
-    "ProfileImage": "Avatar1.jpg"
+    "ProfileImage": "Avatar1.jpg",
+    "IsAdministrator": false
   },
   {
     "ID": 5,
@@ -37,6 +41,25 @@
     "Username": "Marcus",
     "Phone": "55555555",
     "Email": "Marcus@gmail.com",
-    "ProfileImage": "Avatar7.jpg"
+    "ProfileImage": "Avatar7.jpg",
+    "IsAdministrator": false
+  },
+  {
+    "ID": 6,
+    "Name": "test",
+    "Username": "test",
+    "Phone": "24352413",
+    "Email": "c@gmail.com",
+    "ProfileImage": "Avatar2.jpg",
+    "IsAdministrator": false
+  },
+  {
+    "ID": 7,
+    "Name": "taber",
+    "Username": "taber",
+    "Phone": "34251423",
+    "Email": "c@gamil.com",
+    "ProfileImage": "Avatar1.jpg",
+    "IsAdministrator": false
   }
 ]

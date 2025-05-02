@@ -7,35 +7,45 @@
 
 
 
-<h2>Opret profil</h2>
 
-<form method="post">
-    <div>
-        <label>Brugernavn</label>
-        <input asp-for="Username" required />
-    </div>
-    <div>
-        <label>Adgangskode</label>
-        <input asp-for="Password" type="password" required />
-    </div>
-    <div>
-        <label>Navn</label>
-        <input asp-for="Name" required />
-    </div>
-    <div>
-        <label>Telefon</label>
-        <input asp-for="Phone" required />
-    </div>
-    <div>
-        <label>Email</label>
-        <input asp-for="Email" type="email" required />
-    </div>
-    <button type="submit">Opret profil</button>
+<div class="wrapper">
+    <div class="login-container">
+        <h2 class="login-title">Opret profil</h2>
 
-    @if (!string.IsNullOrEmpty(Model.Message))
-    {
-        <p>@Model.Message</p>
-    }
-</form>
+        <form method="post" class="login-form">
+            <div class="form-group">
+                <label class="form-label">Brugernavn</label>
+                <input asp-for="Username" class="form-input" required />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Adgangskode</label>
+                <input asp-for="Password" type="password" class="form-input" required />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Navn</label>
+                <input asp-for="Name" class="form-input" required />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Telefon</label>
+                <input asp-for="Phone" class="form-input" required />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Email</label>
+                <input asp-for="Email" type="email" class="form-input" required />
+            </div>
+
+            <button type="submit" class="login-button">Opret profil</button>
+
+            @if (!string.IsNullOrEmpty(Model.Message))
+            {
+                <p style="margin-top: 15px; color: green;">@Model.Message</p>
+            }
+        </form>
+    </div>
+</div>
 
 
