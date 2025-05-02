@@ -18,13 +18,32 @@
 }
 
 .logo {
-    color: #192862 !important;
+    color: #ffffff !important;
     align-content: center;
 }
-
-#LogoutBtn {
-    padding-top: 60vh;
+/* Position the logout button at the bottom-left of the sidebar */
+#sideBar form {
+    position: absolute; /* Anchor the button */
+    bottom: 1em; /* Add spacing from the bottom */
+    left: 1em; /* Add spacing from the left */
+    width: calc(100% - 2em); /* Ensure it doesn't overflow */
+    display: flex;
+    #justify-content: center;
+    align-items: center;
 }
+
+#LogoutBtn span {
+    margin-left: 1em;
+}
+#sideBar.close form button span {
+    display: none; /* Hide the text */
+}
+
+#sideBar.close form button {
+    justify-content: center; /* Center the SVG icon */
+    border: none;
+}
+   
 
 html {
     scroll-behavior: smooth;
@@ -85,7 +104,7 @@ body {
         }
 
     /*Styling the links in the navbar*/
-    #sideBar a, #sideBar .dropdown-btn, #sideBar .logo {
+    #sideBar a, #sideBar .dropdown-btn, #sideBar .logo #LogoutBtn{
         border-radius: .5em;
         padding: .85em;
         text-decoration: none;
@@ -182,18 +201,19 @@ main {
 @media(max-width: 800px) {
     /* Ensure the logout button matches the other navbar items */
     #sideBar form {
-        width: 60px;
-        height: 60px;
+        position: static; /* Remove absolute positioning */
+        width: 60px; /* Match the width of other navbar items */
+        height: 60px; /* Match the height of other navbar items */
         padding: 0;
         border-radius: 0;
         display: flex;
         justify-content: center;
         align-items: center;
         box-sizing: border-box;
-        padding: 1em;
     }
         #sideBar form button span {
             display: none; /* Hide the text */
+
         }
         #sideBar form button {
             justify-content: center; /* Center the icons */
