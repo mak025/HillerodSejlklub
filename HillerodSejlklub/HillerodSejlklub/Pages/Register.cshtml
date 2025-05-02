@@ -7,46 +7,45 @@
 
 
 
+
 <div class="wrapper">
     <div class="login-container">
         <h2 class="login-title">Opret profil</h2>
+
         <form method="post" class="login-form">
             <div class="form-group">
-                <label class="form-label" for="brugernavn">Brugernavn</label>
-                <input type="text" id="brugernavn" name="brugernavn" class="form-input" />
+                <label class="form-label">Brugernavn</label>
+                <input asp-for="Username" class="form-input" required />
             </div>
 
             <div class="form-group">
-                <label class="form-label" for="adgangskode">Adgangskode</label>
-                <input type="password" id="adgangskode" name="adgangskode" class="form-input" />
+                <label class="form-label">Adgangskode</label>
+                <input asp-for="Password" type="password" class="form-input" required />
             </div>
 
             <div class="form-group">
-                <label class="form-label" for="navn">Navn</label>
-                <input type="text" id="navn" name="navn" class="form-input" />
+                <label class="form-label">Navn</label>
+                <input asp-for="Name" class="form-input" required />
             </div>
 
             <div class="form-group">
-                <label class="form-label" for="telefon">Telefon</label>
-                <input type="tel" id="telefon" name="telefon" class="form-input" />
+                <label class="form-label">Telefon</label>
+                <input asp-for="Phone" class="form-input" required />
             </div>
 
             <div class="form-group">
-                <label class="form-label" for="email">Email</label>
-                <input type="email" id="email" name="email" class="form-input" />
+                <label class="form-label">Email</label>
+                <input asp-for="Email" type="email" class="form-input" required />
             </div>
 
             <button type="submit" class="login-button">Opret profil</button>
+
+            @if (!string.IsNullOrEmpty(Model.Message))
+            {
+                <p style="margin-top: 15px; color: green;">@Model.Message</p>
+            }
         </form>
     </div>
 </div>
-
-<form>
-
-    @if (!string.IsNullOrEmpty(Model.Message))
-    {
-        <p>@Model.Message</p>
-    }
-</form>
 
 
