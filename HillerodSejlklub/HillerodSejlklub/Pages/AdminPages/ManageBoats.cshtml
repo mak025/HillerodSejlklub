@@ -33,8 +33,9 @@
                     <td>
                         <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editBoatModal" onclick="setEditBoat('@boat.ID')">Rediger</button>
                         <form method="post" asp-page-handler="DeleteBoat" asp-route-id="@boat.ID" style="display:inline;">
-                            <button type="submit" class="btn btn-danger btn-sm">Slet</button>
+                            <button type="submit" class="btn btn-danger btn-sm">Slet</button>  
                         </form>
+                        <button style="background-color:powderblue;" type="submit" class="btn btn-danger btn-sm">Log</button>
                     </td>
                     </td>
                 </tr>

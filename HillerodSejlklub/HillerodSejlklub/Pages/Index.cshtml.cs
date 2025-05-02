@@ -56,7 +56,7 @@ namespace HillerodSejlklub.Pages
             HttpContext.Session.SetString("IsAdministrator", user.IsAdministrator.ToString().ToLower());
 
             Message = "Login lykkedes!";
-            // return RedirectToPage("/Members"); ← aktiver når test virker
+            // return RedirectToPage("/Forside"); ← aktiver når test virker
             return RedirectToPage("/Forside");
         }
         public IActionResult OnPostLogout()
