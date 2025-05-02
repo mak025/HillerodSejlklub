@@ -13,9 +13,9 @@
                 <form method="post">
                     <div class="form-group container-fluid">
                         <label for="inputDateTime">Startid: </label>
-                        <input type="datetime" asp-for="_sDT" id="BookingStart" aria-describedby="dateTimeHelp" placeholder="Enter Date/Time" step="3600">
+                        <input type="datetime-local" asp-for="_sDT" id="BookingStart" aria-describedby="dateTimeHelp" placeholder="Enter Date/Time" step="3600">
                         <label for="inputDateTime">Sluttid: </label>
-                        <input type="datetime" asp-for="_eDT" id="BookingEnd" aria-describedby="dateTimeHelp" placeholder="Enter end time" step="3600" />
+                        <input type="datetime-local" asp-for="_eDT" id="BookingEnd" aria-describedby="dateTimeHelp" placeholder="Enter end time" step="3600" />
                     </div>
                     <div class="mt-2">
                         <label for="inputBoat">Vælg Båd: </label>
@@ -54,7 +54,7 @@
                     <div class="card-body text-start">
                         <p><strong>@booking.User</strong></p>
                     <p>Booking ID: @booking.BookingID</p>
-                    <p>Båd: @booking.BoatName</p>
+                    <p>Båd: <b>@booking.BoatName</b></p>
                     <p>fra: @booking.StartDT</p>
                     <p>til:  @booking.EndDT</p>
                 </div>
