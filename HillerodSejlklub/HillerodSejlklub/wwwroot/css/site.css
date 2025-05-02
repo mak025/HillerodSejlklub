@@ -109,5 +109,11 @@ html, body {
         font-size: 0.9em;
         text-decoration: none;
     }
-
-
+#eventBox {
+    background-color: lightgray;
+    margin-top: 1.5em;
+    text-align: center;
+}
+#viewMore {
+    padding-top: 1em;
+}
