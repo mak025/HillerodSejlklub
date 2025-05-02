@@ -61,5 +61,14 @@
     "Email": "c@gamil.com",
     "ProfileImage": "Avatar1.jpg",
     "IsAdministrator": false
+  },
+  {
+    "ID": 8,
+    "Name": "Therodor",
+    "Username": "Theodor",
+    "Phone": "69696969",
+    "Email": "theo@gmail.com",
+    "ProfileImage": "Avatar6.jpg",
+    "IsAdministrator": false
   }
 ]

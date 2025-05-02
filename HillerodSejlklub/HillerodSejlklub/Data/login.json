@@ -38,5 +38,10 @@
     "Username": "taber",
     "PasswordHash": "1234",
     "IsAdministrator": false
+  },
+  {
+    "Username": "Theodor",
+    "PasswordHash": "1234",
+    "IsAdministrator": false
   }
 ]
