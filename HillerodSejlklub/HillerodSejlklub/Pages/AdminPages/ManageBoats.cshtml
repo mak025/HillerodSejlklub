@@ -35,7 +35,7 @@
                         <form method="post" asp-page-handler="DeleteBoat" asp-route-id="@boat.ID" style="display:inline;">
                             <button type="submit" class="btn btn-danger btn-sm">Slet</button>  
                         </form>
-                        <button method="post" asp-page-handler="Log" asp-route-id="@boat" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#logModal" onclick="Log('@boat')">Log</button>
+                        <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#logModal" data-boat-log="@boat.MaintenanceLog">Log</button>
                     </td>
                     </td>
                 </tr>
@@ -150,7 +150,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>    
             <div class="model-body">
-            @foreach (string entry in Model.MaintenanceLog)
+            @foreach (string entry in MaintenanceLog)
             {
                 <p>- @entry</p>
             }
