@@ -8,23 +8,29 @@
 }
 
 
-<h2>Log ind</h2>
-
-<form method="post">
-    <div>
-        <label asp-for="Username"></label>
-        <input asp-for="Username" />
+<div class="wrapper">
+    <div class="login-container">
+        <h2 class="login-title">Login for at fortsætte</h2>
+        <form method="post" class="login-form">
+            <div class="form-group">
+                <label asp-for="Username" class="form-label">USERNAME OR EMAIL</label>
+                <input asp-for="Username" class="form-input" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="form-label">PASSWORD</label>
+                <input asp-for="Password" type="password" class="form-input" />
+            </div>
+            <button type="submit" class="login-button">Login</button>
+            <div class="forgot-password">
+                <a asp-page="/ForgotPassword">FORGOT PASSWORD?</a>
+            </div>
+            <div class="register-link">
+                <a asp-page="/Register" class="btn btn-secondary">Opret bruger</a>
+            </div>
+        </form>       
     </div>
-    <div>
-        <label asp-for="Password"></label>
-        <input asp-for="Password" type="password" />
-    </div>
+</div>
 
-    <button type="submit">Log ind</button>
-
-    <!-- 👇 Opret bruger-knap -->
-    <a asp-page="/Register" class="btn btn-secondary">Opret bruger</a>
-</form>
 
 
 @if (!string.IsNullOrEmpty(Model.ErrorMessage))
