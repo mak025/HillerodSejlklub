@@ -7,30 +7,41 @@
 
 
 
-<h2>Opret profil</h2>
+<div class="wrapper">
+    <div class="login-container">
+        <h2 class="login-title">Opret profil</h2>
+        <form method="post" class="login-form">
+            <div class="form-group">
+                <label class="form-label" for="brugernavn">Brugernavn</label>
+                <input type="text" id="brugernavn" name="brugernavn" class="form-input" />
+            </div>
 
-<form method="post">
-    <div>
-        <label>Brugernavn</label>
-        <input asp-for="Username" required />
+            <div class="form-group">
+                <label class="form-label" for="adgangskode">Adgangskode</label>
+                <input type="password" id="adgangskode" name="adgangskode" class="form-input" />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="navn">Navn</label>
+                <input type="text" id="navn" name="navn" class="form-input" />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="telefon">Telefon</label>
+                <input type="tel" id="telefon" name="telefon" class="form-input" />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="email">Email</label>
+                <input type="email" id="email" name="email" class="form-input" />
+            </div>
+
+            <button type="submit" class="login-button">Opret profil</button>
+        </form>
     </div>
-    <div>
-        <label>Adgangskode</label>
-        <input asp-for="Password" type="password" required />
-    </div>
-    <div>
-        <label>Navn</label>
-        <input asp-for="Name" required />
-    </div>
-    <div>
-        <label>Telefon</label>
-        <input asp-for="Phone" required />
-    </div>
-    <div>
-        <label>Email</label>
-        <input asp-for="Email" type="email" required />
-    </div>
-    <button type="submit">Opret profil</button>
+</div>
+
+<form>
 
     @if (!string.IsNullOrEmpty(Model.Message))
     {
