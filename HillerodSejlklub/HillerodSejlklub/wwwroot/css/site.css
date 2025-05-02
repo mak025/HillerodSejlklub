@@ -109,5 +109,8 @@ html, body {
         font-size: 0.9em;
         text-decoration: none;
     }
-
-
+#eventBox {
+    background-color: lightgray;
+    text-align: center;
+}
+    
