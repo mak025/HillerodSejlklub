@@ -9,5 +9,7 @@ namespace HillerodSejlklub.Repo
         public List<Boat> GetAllBoats();
 
         public Boat Get(string boatReg);
+
+        public List<string> GetMaintenanceLog(int boatID);
     }
 }

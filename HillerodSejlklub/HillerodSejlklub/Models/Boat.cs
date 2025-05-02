@@ -46,6 +46,11 @@ namespace HillerodSejlklub.Models
             LastMaintenanceDate = DateTime.Now;
         }
 
+        public List<string> GetMaintenanceLog(Boat boat)
+        {
+            return boat.MaintenanceLog;
+        }
+
         public void MarkAsRepaired()
         {
             NeedsRepair = false;

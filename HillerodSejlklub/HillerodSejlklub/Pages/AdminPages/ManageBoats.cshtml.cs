@@ -122,7 +122,10 @@ namespace HillerodSejlklub.Pages.AdminPages
 
             return RedirectToPage();
         }
-
+         public IActionResult OnPostLog(int id)
+        {
+            return RedirectToPage();
+        }
 
     }
 }
