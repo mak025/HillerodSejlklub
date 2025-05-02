@@ -100,5 +100,22 @@
     "LastMaintenanceDate": "0001-01-01T00:00:00",
     "NeedsRepair": false,
     "IMGPath": "../img/rowboat2.jpg"
-  }
+  },
+    {
+        "ID": 14,
+        "Type": "Sailboat",
+        "Size": "Medium",
+        "Seats": 12,
+        "Material": "Fiberglas",
+        "Color": "Bkå",
+        "Weight": 100,
+        "YearBuilt": 2010,
+        "Name": "Alice",
+        "RegistrationNumber": "ALI12435",
+        "IsAvailable": true,
+        "MaintenanceLog": [],
+        "LastMaintenanceDate": "0001-01-01T00:00:00",
+        "NeedsRepair": false,
+        "IMGPath": "../img/rowboat2.jpg"
+    }
 ]
