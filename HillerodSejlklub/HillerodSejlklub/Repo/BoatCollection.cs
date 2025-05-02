@@ -36,6 +36,16 @@ namespace HillerodSejlklub.Interface
             return _boats.FirstOrDefault(boat => boat.RegistrationNumber == boatReg);
         }
 
+        public List<string> GetMaintenanceLog(int boatID)
+        {
+            foreach (var boat in _boats)
+            {
+                if (boat.ID == boatID)
+                {  return boat.GetMaintenanceLog(boat); }
+            }
+            return new List<string>();
+        }
+
         private List<Boat> LoadBoatsFromFile()
         {
             // Check if the file exists
