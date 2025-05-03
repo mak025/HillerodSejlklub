@@ -9,16 +9,30 @@ using HillerodSejlklub.Repo;
 
 namespace HillerodSejlklub.Pages.UserPages
 {
+    /// <summary>
+    /// Represents the model for the Available Sailboats page.
+    /// </summary>
     public class AvailableSailBoatsModel : PageModel
     {
         private readonly IBoat _boatCollection;
+
+        /// <summary>
+        /// Gets the list of available sailboats.
+        /// </summary>
         public List<Boat> AvailableBoats { get; private set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AvailableSailBoatsModel"/> class.
+        /// </summary>
+        /// <param name="boatCollection">The boat collection service.</param>
         public AvailableSailBoatsModel(IBoat boatCollection)
         {
             _boatCollection = boatCollection;
         }
 
+        /// <summary>
+        /// Handles GET requests to load available sailboats.
+        /// </summary>
         public void OnGet()
         {
             var username = HttpContext.Session.GetString("Username");

@@ -9,31 +9,45 @@ using HillerodSejlklub.Repo;
 
 namespace HillerodSejlklub.Pages.UserPages
 {
+    /// <summary>  
+    /// Represents the Razor Page model for displaying available motorboats.  
+    /// </summary>  
     public class AvailableMotorBoatsModel : PageModel
     {
         private readonly IBoat _boatCollection;
+
+        /// <summary>  
+        /// Gets the list of available motorboats.  
+        /// </summary>  
         public List<Boat> AvailableBoats { get; private set; }
 
+        /// <summary>  
+        /// Initializes a new instance of the <see cref="AvailableMotorBoatsModel"/> class.  
+        /// </summary>  
+        /// <param name="boatCollection">The boat collection interface for retrieving boats.</param>  
         public AvailableMotorBoatsModel(IBoat boatCollection)
         {
             _boatCollection = boatCollection;
         }
 
+        /// <summary>  
+        /// Handles GET requests to fetch and display available motorboats.  
+        /// </summary>  
         public void OnGet()
         {
             var username = HttpContext.Session.GetString("Username");
             if (string.IsNullOrEmpty(username))
             {
-                // Redirect to login page if not logged in
+                // Redirect to login page if not logged in  
                 Response.Redirect("/Index");
             }
 
-            // Fetch available Motorboat from the JSON file
+            // Fetch available motorboats from the collection  
             AvailableBoats = _boatCollection.GetAllBoats()
                 .Where(boat => boat.Type == "Motorboat" && boat.IsAvailable)
                 .ToList();
 
-            // Debug: Check if Motorboat are being loaded
+            // Debug: Log the count and details of available motorboats  
             Debug.WriteLine($"Available Motorboat Count: {AvailableBoats.Count}");
             foreach (var boat in AvailableBoats)
             {

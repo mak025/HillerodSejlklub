@@ -9,36 +9,35 @@ using System.Data;
 
 namespace HillerodSejlklub.Pages;
 
+/// <summary>  
+/// Represents the Index page model for the application.  
+/// </summary>  
 public class IndexModel : PageModel
 {
     private readonly BookingService _bookingService;
     private readonly BoatService _boatService;
+
+    /// <summary>  
+    /// Gets or sets the list of boats available.  
+    /// </summary>  
     [BindProperty]
     public List<Boat> Boats { get; set; }
 
+    /// <summary>  
+    /// Gets or sets the list of bookings.  
+    /// </summary>  
     public List<Booking> Bookings { get; set; }
-    //List<Booking> _activeBookings = new List<Booking>();
 
     private readonly ILogger<IndexModel> _logger;
 
-
-    //bool _isBooked = false;
-    //[BindProperty]
-    //public int filterCap { get; set; }
-    //[BindProperty]
-    //public bool filterWB { get; set; }
-    //[BindProperty]
-    //public bool filterSB { get; set; }
-    //[BindProperty]
-    //public DateOnly filterDate { get; set; }
-
-    //bool dateIsSet = false;
-
+    /// <summary>  
+    /// Initializes a new instance of the <see cref="IndexModel"/> class.  
+    /// </summary>  
+    /// <param name="logger">The logger instance.</param>  
+    /// <param name="boatS">The boat service instance.</param>  
+    /// <param name="bookingS">The booking service instance.</param>  
     public IndexModel(ILogger<IndexModel> logger, BoatService boatS, BookingService bookingS)
     {
-        //if (!dateIsSet)
-        //    filterDate = DateOnly.FromDateTime(DateTime.Now.Date);
-
         _logger = logger;
         Boats = boatS.GetAll();
         _boatService = boatS;
@@ -46,14 +45,16 @@ public class IndexModel : PageModel
         _bookingService = bookingS;
     }
 
+    /// <summary>  
+    /// Handles GET requests to the Index page.  
+    /// </summary>  
     public void OnGet()
     {
         var username = HttpContext.Session.GetString("Username");
         if (string.IsNullOrEmpty(username))
         {
-            // Redirect to login page if not logged in
+            // Redirect to login page if not logged in  
             Response.Redirect("/Index");
         }
     }
-
 }
