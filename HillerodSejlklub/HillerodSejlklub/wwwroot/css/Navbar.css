@@ -26,7 +26,6 @@
 #sideBar form {
     position: absolute; /* Anchor the button */
     bottom: 1em; /* Add spacing from the bottom */
-    left: 1em; /* Add spacing from the left */
     width: calc(100% - 2em); /* Ensure it doesn't overflow */
     display: flex;
     #justify-content: center;
